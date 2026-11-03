@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+ <title id="title">DMD initials</title>
+ <rect width="64" height="64" rx="15" fill="#1F3864"/>
+ <text x="32" y="41" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="800" letter-spacing="-1.7" fill="#FFFFFF">DMD</text>
+ <circle cx="56" cy="54" r="4" fill="#50B2FF"/>
+</svg>

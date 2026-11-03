@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+ <title id="title">Illustrative SignLearn project preview</title><desc id="desc">An original conceptual illustration with panels for lessons, camera-based practice, and progress. This is not a screenshot of the actual application.</desc>
+ <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#183662"/><stop offset="1" stop-color="#2467b2"/></linearGradient><linearGradient id="panel" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#e9f2ff"/></linearGradient></defs>
+ <rect width="1200" height="720" fill="url(#bg)"/>
+ <circle cx="1110" cy="40" r="230" fill="#4b9eff" opacity=".1"/><circle cx="-40" cy="650" r="240" fill="#83baff" opacity=".09"/>
+ <text x="88" y="105" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold" font-size="47">SignLearn</text><text x="89" y="145" fill="#b9d7ff" font-family="Arial,sans-serif" font-size="21">FSL LEARNING PLATFORM · CONCEPTUAL PROJECT ART</text>
+ <rect x="87" y="185" width="1026" height="445" rx="25" fill="url(#panel)"/>
+ <rect x="87" y="185" width="218" height="445" rx="25" fill="#deebff"/>
+ <text x="125" y="242" fill="#213d68" font-family="Arial,sans-serif" font-weight="bold" font-size="26">Learning</text>
+ <rect x="119" y="269" width="150" height="42" rx="11" fill="#2b6fd0"/><text x="148" y="296" fill="white" font-family="Arial,sans-serif" font-size="17">Dictionary</text>
+ <text x="138" y="359" fill="#39577d" font-family="Arial,sans-serif" font-size="18">Practice</text>
+ <text x="138" y="412" fill="#39577d" font-family="Arial,sans-serif" font-size="18">Quizzes</text>
+ <text x="138" y="465" fill="#39577d" font-family="Arial,sans-serif" font-size="18">Sentences</text>
+ <text x="138" y="518" fill="#39577d" font-family="Arial,sans-serif" font-size="18">Dashboard</text>
+ <text x="351" y="246" fill="#213d68" font-family="Arial,sans-serif" font-weight="bold" font-size="25">Real-time sign practice</text>
+ <rect x="351" y="271" width="465" height="284" rx="19" fill="#cfdef2"/>
+ <rect x="379" y="299" width="409" height="230" rx="14" fill="#3d608b"/>
+ <g opacity=".85" fill="none" stroke="#cbe5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M545 460v-100q0-14 12-14t12 14v52-92q0-13 12-13t12 13v90-101q0-12 12-12t12 12v103-78q0-11 12-11t12 11v109l27-37q10-10 20-2 9 8 2 19l-58 86q-18 28-47 26l-50-2q-27-4-35-33l-12-46q-3-12 9-16 10-4 15 8l19 43"/></g>
+ <text x="400" y="574" fill="#284975" font-family="Arial,sans-serif" font-size="18">Camera-based gesture recognition</text>
+ <rect x="842" y="271" width="237" height="126" rx="17" fill="#fff" stroke="#d3e3f7"/>
+ <text x="865" y="309" fill="#294972" font-family="Arial,sans-serif" font-weight="bold" font-size="20">Interactive quiz</text>
+ <rect x="866" y="337" width="185" height="13" rx="6" fill="#d9e8fb"/><rect x="866" y="337" width="134" height="13" rx="6" fill="#2b6fd0"/>
+ <text x="866" y="378" fill="#587395" font-family="Arial,sans-serif" font-size="15">Lesson practice</text>
+ <rect x="842" y="417" width="237" height="138" rx="17" fill="#fff" stroke="#d3e3f7"/>
+ <text x="865" y="455" fill="#294972" font-family="Arial,sans-serif" font-weight="bold" font-size="20">Sentence builder</text><rect x="866" y="483" width="68" height="36" rx="9" fill="#e6f0ff"/><rect x="943" y="483" width="104" height="36" rx="9" fill="#e6f0ff"/>
+ <text x="87" y="675" fill="#dcecff" font-family="Arial,sans-serif" font-size="17">Illustration only — replace with a real project screenshot</text>
+</svg>

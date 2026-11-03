@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1F3864">
+  <meta name="description" content="Digital portfolio of Daniel Matthew R. Desiderio, a BSIT student and aspiring SAP Analytics Consultant intern. Explore his education, technical skills, projects, certifications, and experience.">
+  <!-- PRIVACY: Remove this tag if you choose to allow search-engine indexing. This is NOT password protection. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Daniel Matthew R. Desiderio | Digital Portfolio">
+  <meta property="og:description" content="BSIT student. SAP certified. Ready to intern. Projects, competencies, and experience.">
+  <!-- TODO: Add an absolute HTTPS og:image after publishing, if you have a real preview image. -->
+  <title>Daniel Matthew R. Desiderio | Digital Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Additional art direction, section-specific visuals, and motion system. -->
+  <link rel="stylesheet" href="css/premium.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- MOBILE HEADER: On desktop, the brand and navigation live in the fixed left sidebar. -->
+  <header class="mobile-header" id="mobile-header">
+    <a class="mobile-brand" href="#home" aria-label="Daniel Desiderio, Home">
+      <span class="brand-icon">DMD</span><span>D. M. Desiderio</span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <button class="nav-backdrop" id="nav-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
+
+  <!-- FIXED SIDEBAR / MOBILE DRAWER: The eight numbered links match the PDF wireframe. -->
+  <aside class="sidebar" id="sidebar" aria-label="Portfolio navigation">
+    <div class="side-brand">
+      <a href="#home" class="side-brand-link" aria-label="Return to the cover page"><span class="brand-icon">DMD</span><span class="brand-copy"><strong>Daniel Desiderio</strong><small>Digital Portfolio</small></span></a>
+    </div>
+    <div class="side-person">
+      <span class="sidebar-orbit" aria-hidden="true"></span>
+      <!-- TODO PHOTO: Replace assets/images/profile.jpg with your real ID photo; update both profile image alt attributes. -->
+      <img src="assets/images/profile.jpg" alt="Placeholder for Daniel Matthew R. Desiderio's profile photograph" width="720" height="880">
+      <strong>Daniel Matthew R. Desiderio</strong>
+      <span>BSIT Student</span>
+      <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>Seeking IT internship</span>
+    </div>
+    <nav class="side-navigation" id="primary-navigation" aria-label="Main sections">
+      <span class="side-nav-label">Explore the portfolio</span>
+      <a href="#home" class="nav-link is-active" aria-current="location"><span>01</span> Home</a>
+      <a href="#about" class="nav-link"><span>02</span> About Me</a>
+      <a href="#education" class="nav-link"><span>03</span> Education</a>
+      <a href="#skills" class="nav-link"><span>04</span> Skills</a>
+      <a href="#projects" class="nav-link"><span>05</span> Projects</a>
+      <a href="#achievements" class="nav-link"><span>06</span> Achievements</a>
+      <a href="#experience" class="nav-link"><span>07</span> Experience</a>
+      <a href="#contact" class="nav-link"><span>08</span> Contact</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="sidebar-foot-label"><span aria-hidden="true"></span> Built for the next opportunity</div>
+      <a class="button button-primary side-download" href="assets/docs/Daniel-Matthew-Desiderio-Resume.pdf" download>Download Resume (PDF)</a>
+      <small>© 2026 Daniel Matthew R. Desiderio</small>
+    </div>
+  </aside>
+
+  <main class="site-main" id="main-content" tabindex="-1">
+    <!-- 01 / COVER PAGE -->
+    <section class="folio-section section-hero" data-chapter="01" id="home" aria-labelledby="hero-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content hero-content">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-left reveal">
+          <p class="section-kicker">01 · Cover Page</p>
+          <span class="intro-pill"><span class="intro-spark" aria-hidden="true"></span>Hello, I am Daniel</span>
+          <h1 id="hero-title"><span class="desktop-headline">BSIT Student.<br><em>SAP Certified.</em><br>Ready to Intern.</span><span class="mobile-headline">Daniel Matthew R. Desiderio</span></h1>
+          <p class="mobile-hero-subtitle">BSIT Student | Aspiring SAP Analytics Consultant Intern</p>
+          <p class="hero-intro">I'm Daniel Matthew R. Desiderio, a BSIT student learning SQL, Python, and SAP S/4HANA. I'm seeking an IT internship where I can contribute, collaborate, and grow.</p>
+          <div class="hero-code" aria-label="Areas of interest, presented as example code">
+            <div class="code-top"><span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>my-focus.js</span><span>JS</span></div>
+            <div class="code-lines"><div><span class="line-index">01</span><span><b>const</b> <em>focus</em> = [<strong>'Data'</strong>, <strong>'Systems'</strong>];</span></div><div><span class="line-index">02</span><span><b>const</b> <em>nextStep</em> = <strong>'IT Internship'</strong>;</span></div><div><span class="line-index">03</span><span class="code-comment">// learn · build · contribute</span><span class="code-cursor" aria-hidden="true"></span></div></div>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View My Work</a>
+            <a class="button button-outline" href="assets/docs/Daniel-Matthew-Desiderio-Resume.pdf" download>Download Resume</a>
+            <a class="button button-link" href="#contact">Contact Me <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="hero-right reveal">
+          <div class="hero-image-wrap">
+            <span class="photo-corner photo-corner-a" aria-hidden="true"></span><span class="photo-corner photo-corner-b" aria-hidden="true"></span>
+            <!-- TODO PHOTO: Replace same-named profile.jpg with an actual professional ID photo. -->
+            <img src="assets/images/profile.jpg" alt="Placeholder for Daniel Matthew R. Desiderio's professional portrait" width="720" height="880" fetchpriority="high">
+          </div>
+          <div class="hero-floating-badge" aria-hidden="true"><span class="badge-orbit"></span><span>TECH<br>+ PEOPLE</span></div>
+          <div class="hero-info-panel"><span class="micro-label">Target role</span><strong>SAP Analytics Consultant Intern</strong></div>
+          <div class="hero-info-panel"><span class="micro-label">Tools</span><strong>Java · Python · C# · SQL · SAP S/4HANA</strong></div>
+        </div>
+      </div>
+      <div class="page-bottomline"><a href="#about">Scroll to explore <span aria-hidden="true">↓</span></a><span>01 — 08</span></div>
+    </section>
+
+    <!-- 02 / ABOUT ME: Edit the first-person text if your career goals change. -->
+    <section class="folio-section" data-chapter="02" id="about" aria-labelledby="about-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content">
+        <div class="section-heading reveal"><p class="section-kicker">02 · Personal and Professional Profile</p><h2 id="about-title">People, systems &amp; possibilities.</h2><p>My technical foundation and real-world service experience shape how I learn, solve problems, and work with people.</p></div>
+        <div class="about-grid">
+          <div class="about-narrative reveal">
+            <p>I am a Bachelor of Science in Information Technology student at STI College Dasmariñas with foundational skills in Java, Python, C#, and SQL. My SAP S/4HANA training using the Global Bike case introduced me to connected business processes across five key modules.</p>
+            <p>Through customer service and patient support, I have developed communication, teamwork, and attention to detail. I aim to apply my technical knowledge, contribute to collaborative projects, and continue learning.</p>
+            <div class="goal-callout"><span class="micro-label">Career goal</span><p>To gain practical experience in an SAP analytics-related IT internship and build useful solutions with a professional team.</p></div>
+          </div>
+          <div class="about-facts reveal">
+            <div class="fact-card"><span class="micro-label">Studying</span><strong>BS Information Technology, STI College Dasmariñas</strong></div>
+            <div class="fact-card"><span class="micro-label">Based in</span><strong>Imus City, Cavite, Philippines</strong></div>
+            <div class="fact-card"><span class="micro-label">Applying for</span><strong>SAP Analytics Consultant Internship, SAP Philippines Inc.</strong></div>
+            <div class="fact-card"><span class="micro-label">Languages</span><strong>English and Tagalog</strong></div>
+          </div>
+        </div>
+        <div class="focus-journey reveal" role="img" aria-label="My approach: learn concepts, build practical solutions, and communicate clearly"><div class="focus-journey-head"><span class="micro-label">My approach</span><span>Learning → Building → Collaborating</span></div><div class="focus-nodes"><div><span class="focus-symbol">{ }</span><strong>Learn</strong><small>Understand the fundamentals</small></div><span class="journey-arrow" aria-hidden="true">→</span><div><span class="focus-symbol">&lt;/&gt;</span><strong>Build</strong><small>Apply what I learn</small></div><span class="journey-arrow" aria-hidden="true">→</span><div><span class="focus-symbol">↗</span><strong>Communicate</strong><small>Contribute with the team</small></div></div></div>
+        <div class="about-lower reveal">
+          <article class="info-card"><h3>Interests</h3><p>Data analysis, software development, and connected business processes.</p></article>
+          <article class="info-card"><h3>Competencies</h3><p>Foundational programming, SQL, team communication, and problem-solving.</p></article>
+          <article class="info-card"><h3>What I want to learn</h3><p>Real-world SAP analytics workflows and collaborative IT project practices.</p></article>
+        </div>
+      </div>
+      <div class="page-bottomline"><a href="#education">Scroll to explore <span aria-hidden="true">↓</span></a><span>02 — 08</span></div>
+    </section>
+
+    <!-- 03 / EDUCATION -->
+    <section class="folio-section" data-chapter="03" id="education" aria-labelledby="education-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content">
+        <div class="section-heading reveal"><p class="section-kicker">03 · Educational Background</p><h2 id="education-title">An ongoing journey of learning.</h2><p>My academic path has shaped the technical foundation I am continuing to develop in information technology.</p></div>
+        <div class="education-grid">
+          <ol class="education-timeline reveal">
+            <li class="education-item"><span class="timeline-date">2023 – 2027 · In progress</span><h3>Bachelor of Science in Information Technology</h3><p>STI College Dasmariñas</p></li>
+            <li class="education-item"><span class="timeline-date">2021 – 2023</span><h3>Senior High School (STEM)</h3><p>Southern Philippines Institute of Science and Technology, Imus City, Cavite</p></li>
+            <li class="education-item"><span class="timeline-date">2017 – 2021</span><h3>Junior High School</h3><p>St. Odilard School, Imus City, Cavite</p></li>
+            <li class="education-item"><span class="timeline-date">2011 – 2017</span><h3>Elementary Education</h3><p>Bayan Luma 1 Elementary School, Imus City, Cavite</p></li>
+          </ol>
+          <div class="education-aside reveal">
+            <div class="learning-card" aria-label="My current learning interests">
+              <div class="learning-card-top"><span>INFORMATION TECHNOLOGY</span><span class="learn-signal" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <div class="learning-glyph" aria-hidden="true"><span>&lt;/&gt;</span><span class="glyph-ring"></span></div>
+              <p>Connecting code, data, and business processes.</p>
+              <div class="learning-topics"><span>Programming</span><span>SQL</span><span>SAP S/4HANA</span></div>
+            </div>
+            <div class="fact-card"><span class="micro-label">Current program</span><strong>BSIT · STI College Dasmariñas</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-bottomline"><a href="#skills">Scroll to explore <span aria-hidden="true">↓</span></a><span>03 — 08</span></div>
+    </section>
+
+    <!-- 04 / SKILLS: No invented proficiency percentages or levels. -->
+    <section class="folio-section" data-chapter="04" id="skills" aria-labelledby="skills-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content">
+        <div class="section-heading reveal"><p class="section-kicker">04 · Skills and Competencies</p><h2 id="skills-title">My technical toolkit.</h2><p>Foundational programming, business-process learning, and the people skills I bring to collaborative work.</p></div>
+        <div class="skills-caption reveal"><p class="overline">SAP S/4HANA · Global Bike Case</p><span class="module-note">Five connected areas of enterprise learning <span aria-hidden="true">↘</span></span></div>
+        <div class="sap-grid reveal" aria-label="SAP modules covered in the Global Bike case">
+          <div class="sap-module"><strong>SD</strong><span>Sales and Distribution</span></div>
+          <div class="sap-module"><strong>MM</strong><span>Materials Management</span></div>
+          <div class="sap-module"><strong>PP</strong><span>Production Planning</span></div>
+          <div class="sap-module"><strong>FI</strong><span>Financial Accounting</span></div>
+          <div class="sap-module"><strong>CO</strong><span>Controlling</span></div>
+        </div>
+        <div class="skills-decoration reveal" aria-label="Conceptual data workflow from raw information to business context"><div class="workchip"><span>01 / INPUT</span><strong>Data</strong></div><div class="work-connector" aria-hidden="true"><i></i><i></i><i></i></div><div class="workchip"><span>02 / LOGIC</span><strong>SQL + Python</strong></div><div class="work-connector" aria-hidden="true"><i></i><i></i><i></i></div><div class="workchip"><span>03 / CONTEXT</span><strong>Business processes</strong></div></div>
+        <div class="skill-columns">
+          <article class="info-card skill-box reveal"><h3>Technical Skills</h3><div class="tag-list"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">C#</span><span class="tag">SQL</span><span class="tag">MS Word</span><span class="tag">PowerPoint</span><span class="tag">Excel</span></div><p class="help-text">Java Fundamentals certification and SAP S/4HANA Global Bike coursework.</p></article>
+          <article class="info-card skill-box reveal"><h3>Soft Skills</h3><div class="tag-list"><span class="tag">Leadership</span><span class="tag">Problem-solving</span><span class="tag">Time Management</span><span class="tag">Teamwork</span><span class="tag">Creativity</span><span class="tag">Organization</span><span class="tag">Focus</span><span class="tag">Advanced Learner</span><span class="tag">Willingness to Learn</span></div></article>
+        </div>
+      </div>
+      <div class="page-bottomline"><a href="#projects">Scroll to explore <span aria-hidden="true">↓</span></a><span>04 — 08</span></div>
+    </section>
+
+    <!-- 05 / PROJECTS: Images are illustrative placeholders, not proof or live screenshots. -->
+    <section class="folio-section" data-chapter="05" id="projects" aria-labelledby="projects-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content">
+        <div class="section-heading reveal"><p class="section-kicker">05 · Academic Projects and Outputs</p><h2 id="projects-title">Work that shows how I learn.</h2><p>Selected academic work exploring computer vision, application development, and integrated business systems.</p></div>
+        <article class="featured-project reveal">
+          <div class="project-visual"><div class="project-window-top" aria-hidden="true"><span><i></i><i></i><i></i></span><span>PROJECT / SIGNLEARN</span><span>01</span></div><img src="assets/images/projects/signlearn-preview.svg" alt="Illustrative placeholder graphic for SignLearn, not an actual website screenshot" width="1200" height="720" loading="lazy"><span>Illustrative placeholder · Add a real SignLearn screenshot</span></div>
+          <div class="project-summary"><div class="project-index">01 / FEATURED BUILD</div><span class="overline">Featured · Capstone Project</span><h3>SignLearn: Filipino Sign Language Learning Platform</h3><p>A web-based Filipino Sign Language learning platform with real-time gesture recognition using Python/Flask, MediaPipe, PyTorch, OpenCV, and a Three.js 3D hand model.</p><p>It includes a dictionary, interactive quizzes (70% passing threshold; three attempts), a sentence builder, a personal dashboard, and PDF reports. The project is deployed on Railway.</p><div class="tag-list"><span class="tag">Python / Flask</span><span class="tag">MediaPipe</span><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">Three.js</span></div>
+            <!-- TODO LINKS: Replace disabled buttons with verified <a> links. Never invent URLs. -->
+            <div class="project-buttons"><button type="button" class="button button-primary" disabled title="Add verified Live Demo URL">Live Demo · Add URL</button><button type="button" class="button button-outline" disabled title="Add verified GitHub URL">GitHub · Add URL</button></div>
+          </div>
+        </article>
+        <div class="feature-line reveal"><span class="overline">SignLearn features</span><div class="feature-grid"><span>Dictionary</span><span>Interactive quiz</span><span>Sentence builder</span><span>Personal dashboard</span><span>PDF reports</span></div></div>
+        <article class="secondary-project reveal"><div><span class="project-index">02 / BUSINESS SYSTEMS</span><span class="overline">Enterprise Systems Coursework</span><h3>SAP S/4HANA Global Bike Case</h3><p>I worked across the SD, MM, PP, FI, and CO modules and learned how business processes connect end to end.</p><div class="tag-list"><span class="tag">SD</span><span class="tag">MM</span><span class="tag">PP</span><span class="tag">FI</span><span class="tag">CO</span></div></div><img src="assets/images/projects/sap-case-preview.svg" alt="Illustrative diagram of the SD, MM, PP, FI, and CO process areas" width="1200" height="720" loading="lazy"></article>
+        <!-- NEW PROJECT TEMPLATE: Copy this card OUTSIDE of the comment and replace brackets with your real information.
+        <article class="secondary-project"><div><span class="overline">[Project category]</span><h3>[Project name]</h3><p>[Your verified project description and contribution]</p><a href="[VERIFIED_URL]" target="_blank" rel="noopener noreferrer">View project</a></div><img src="assets/images/projects/[screenshot].webp" alt="[Accurate screenshot description]" loading="lazy"></article>
+        -->
+      </div>
+      <div class="page-bottomline"><a href="#achievements">Scroll to explore <span aria-hidden="true">↓</span></a><span>05 — 08</span></div>
+    </section>
+
+    <!-- 06 / ACHIEVEMENTS: Swipeable gallery on mobile; click/tap any card to enlarge. -->
+    <section class="folio-section" data-chapter="06" id="achievements" aria-labelledby="achievements-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content">
+        <div class="section-heading heading-with-note reveal"><div><p class="section-kicker">06 · Achievements and Certifications</p><h2 id="achievements-title">Evidence of effort.</h2><p>Certificates, academic honors, and service recognitions earned throughout my learning and work experience.</p></div><p class="interaction-hint">Select a certificate to enlarge · Esc closes</p></div>
+        <div class="evidence-ribbon reveal"><span class="ribbon-symbol" aria-hidden="true">✳</span><div><strong>Explore the evidence</strong><span>Certification gallery · professional recognition · academic honors</span></div></div>
+        <div class="gallery-toolbar"><span class="overline">Certificates · 7</span><div class="gallery-buttons"><button type="button" id="cert-prev" aria-label="Scroll certificates left">←</button><button type="button" id="cert-next" aria-label="Scroll certificates right">→</button></div></div>
+        <!-- TODO CERT IMAGES: Swap the seven JPEG files under assets/images/certs/ with your real, redacted certificates. -->
+        <div class="certificate-track" id="certificate-track" aria-label="Certificate gallery" tabindex="0">
+          <button class="certificate-card" type="button" data-cert-title="Certificate of Java Fundamentals"><span class="certificate-image"><img src="assets/images/certs/java-fundamentals.jpg" alt="Placeholder image for the Certificate of Java Fundamentals" width="900" height="640" loading="lazy"></span><strong>Certificate of Java Fundamentals</strong><span>Programming</span></button>
+          <button class="certificate-card" type="button" data-cert-title="SAP S/4HANA Certification — Global Bike"><span class="certificate-image"><img src="assets/images/certs/sap-s4hana.jpg" alt="Placeholder image for the SAP S/4HANA Global Bike certification" width="900" height="640" loading="lazy"></span><strong>SAP Certification: SD, MM, PP, FI, CO</strong><span>S/4HANA · Global Bike</span></button>
+          <button class="certificate-card" type="button" data-cert-title="Jollibee Dining Certification"><span class="certificate-image"><img src="assets/images/certs/jollibee-dining.jpg" alt="Placeholder image for Jollibee Dining certification" width="900" height="640" loading="lazy"></span><strong>Jollibee Crew: Dining</strong><span>Service Operations</span></button>
+          <button class="certificate-card" type="button" data-cert-title="Jollibee CIC Certification"><span class="certificate-image"><img src="assets/images/certs/jollibee-cic.jpg" alt="Placeholder image for Jollibee CIC certification" width="900" height="640" loading="lazy"></span><strong>Jollibee Crew: CIC</strong><span>Service Operations</span></button>
+          <button class="certificate-card" type="button" data-cert-title="Jollibee JKP Certification"><span class="certificate-image"><img src="assets/images/certs/jollibee-jkp.jpg" alt="Placeholder image for Jollibee JKP certification" width="900" height="640" loading="lazy"></span><strong>Jollibee Crew: JKP</strong><span>Service Operations</span></button>
+          <button class="certificate-card" type="button" data-cert-title="Jollibee Fryman Certification"><span class="certificate-image"><img src="assets/images/certs/jollibee-fryman.jpg" alt="Placeholder image for Jollibee Fryman certification" width="900" height="640" loading="lazy"></span><strong>Jollibee Crew: Fryman</strong><span>Service Operations</span></button>
+          <button class="certificate-card" type="button" data-cert-title="Jollibee Soda Certification"><span class="certificate-image"><img src="assets/images/certs/jollibee-soda.jpg" alt="Placeholder image for Jollibee Soda certification" width="900" height="640" loading="lazy"></span><strong>Jollibee Crew: Soda</strong><span>Service Operations</span></button>
+        </div>
+        <p class="gallery-hint">Swipe to see more · Tap a certificate to enlarge.</p>
+        <div class="achievement-grid">
+          <details class="expand-panel reveal" open><summary><span>Awards · Jollibee Imus Aguinaldo</span><span class="expand-icon" aria-hidden="true">+</span></summary><div class="tag-list award-tags"><span class="tag">Dining of the Year</span><span class="tag">Sparkling Bee Winner</span><span class="tag">Most Improved Crew</span><span class="tag">Values Award</span><span class="tag">Most Attentive Crew</span><span class="tag">Best in Alagang Jollibee</span><span class="tag">Service Loyalty Award</span><span class="tag">Best Rookie</span><span class="tag">Alagang Jollibee Award</span><span class="tag">Commendable Crew</span><span class="tag">Most Improved Bee</span></div></details>
+          <details class="expand-panel reveal" open><summary><span>Academic Honors</span><span class="expand-icon" aria-hidden="true">+</span></summary><ul class="honors-list"><li><strong>Senior High</strong> · With Honors (Grades 11–12)</li><li><strong>Junior High</strong> · With High Honors (Grade 10); With Honors (Grades 7–9)</li><li><strong>Elementary</strong> · With Honors (Grades 1–6); Best in Spelling Test (Grade 6)</li></ul></details>
+        </div>
+      </div>
+      <div class="page-bottomline"><a href="#experience">Scroll to explore <span aria-hidden="true">↓</span></a><span>06 — 08</span></div>
+    </section>
+
+    <!-- 07 / WORK HISTORY: The end date for Jollibee is in 2027, so this is shown as ongoing in 2026. -->
+    <section class="folio-section" data-chapter="07" id="experience" aria-labelledby="experience-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content">
+        <div class="section-heading reveal"><p class="section-kicker">07 · Relevant Experiences</p><h2 id="experience-title">Working with purpose.</h2><p>Service roles have taught me how to stay organized, communicate clearly, and support others in everyday operations.</p></div>
+        <div class="experience-grid">
+          <div><h3 class="column-heading">Work Experience</h3>
+            <article class="experience-card reveal"><span class="experience-label">01 · CUSTOMER SERVICE</span><h4>Service Crew</h4><p class="company">Jollibee Imus Aguinaldo · Imus City, Cavite</p><p class="date">March 4, 2024 – Present <small>(supplied end date: March 20, 2027)</small></p><ul><li>Operated all-around service stations accurately and efficiently, earning Dining, CIC, JKP, Fryman, and Soda certifications.</li><li>Upheld service standards and teamwork, earning recognitions including Dining of the Year, Best Rookie, Most Improved Crew, and Service Loyalty Award.</li><li>Supported customers attentively and practiced service values, earning the Most Attentive Crew, Values Award, and Alagang Jollibee Award.</li></ul></article>
+            <article class="experience-card reveal"><span class="experience-label">02 · PATIENT SUPPORT</span><h4>Assistant Nurse (Summer Job)</h4><p class="company">Health Index Multispecialty Clinic</p><p class="date">April 24, 2023 – August 26, 2023</p><ul><li>Assisted patients with basic assessments and routine monitoring, supporting accurate and timely care.</li><li>Maintained a clean, safe clinical environment in line with health and safety standards.</li><li>Supported licensed nurses and physicians with patient care, contributing to smooth daily operations.</li></ul></article>
+          </div>
+          <div><h3 class="column-heading">Seminars and Leadership Involvement</h3><div class="seminar-panel reveal"><ol class="seminar-list">
+            <li><time datetime="2019-08-24">Aug 24, 2019</time><div><strong>Cavite Youth Summit (Transforming Education)</strong><small>Cavite State University, Indang</small></div></li>
+            <li><time datetime="2019-10-26">Oct 26, 2019</time><div><strong>SDG Bayanihan Summit</strong><small>FEU Institute of Technology, Manila</small></div></li>
+            <li><time datetime="2019-11-07">Nov 7, 2019</time><div><strong>1st Regional Youth Summit (Regional Youth Leaders)</strong><small>Imus City, Cavite</small></div></li>
+            <li><time datetime="2022-03-30">Mar 30, 2022</time><div><strong>First Aid Kit Training</strong><small>Southern Philippines Institute of Science and Technology</small></div></li>
+            <li><time datetime="2022-04-08">Apr 8, 2022</time><div><strong>Youth Shall Vote (A Voter's Empowerment Webinar)</strong><small>Zoom</small></div></li>
+            <li><time datetime="2024-04-19">Apr 19, 2024</time><div><strong>Health Awareness and Emergency Preparedness Day</strong><small>STI College Dasmariñas</small></div></li>
+            <li><time datetime="2024-06-20">Jun 20, 2024</time><div><strong>Planet Protectors: Environmental Education Workshops</strong><small>STI College Dasmariñas</small></div></li>
+            <li><time datetime="2024-08-16">Aug 16, 2024</time><div><strong>6th Youth Leaders' Summit</strong><small>New Imus City Government Center, Imus City, Cavite</small></div></li>
+            <li><time datetime="2026-10-27">Oct 27, 2026</time><div><strong>SAFE: Self-Defense and Awareness for Everyone</strong><small>STI College Dasmariñas</small></div></li>
+          </ol></div><p class="leadership-note">Leadership roles: <strong>[Add verified positions if applicable]</strong></p></div>
+        </div>
+      </div>
+      <div class="page-bottomline"><a href="#contact">Scroll to explore <span aria-hidden="true">↓</span></a><span>07 — 08</span></div>
+    </section>
+
+    <!-- 08 / CONTACT: Netlify Forms is functional after deployment; Live Server does not process form submissions. -->
+    <section class="folio-section" data-chapter="08" id="contact" aria-labelledby="contact-title">
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="section-content">
+        <div class="section-heading reveal"><p class="section-kicker">08 · Contact Information</p><h2 id="contact-title">Let's build a conversation.</h2><p>If you would like to discuss an internship opportunity, I would be glad to hear from you.</p></div>
+        <div class="contact-banner reveal"><div class="contact-banner-copy"><span class="banner-eyebrow">OPEN TO OPPORTUNITIES</span><strong>Ready to learn. Ready to contribute.</strong><span>IT internship · SAP analytics interest · collaborative projects</span></div><div class="banner-code" aria-hidden="true"><span>01 &nbsp; connect()</span><span>02 &nbsp; collaborate()</span><span>03 &nbsp; grow()</span></div></div>
+        <div class="contact-grid">
+          <div class="contact-left reveal">
+            <div class="fact-card"><span class="micro-label">Email</span><a href="mailto:danielmatthew820@gmail.com">danielmatthew820@gmail.com</a></div>
+            <div class="fact-card"><span class="micro-label">Mobile</span><a href="tel:+639605446060">0960 544 6060</a></div>
+            <div class="fact-card"><span class="micro-label">Location</span><strong>Imus City, Cavite, Philippines</strong></div>
+            <div class="document-actions"><a class="button button-primary" href="assets/docs/Daniel-Matthew-Desiderio-Resume.pdf" download>Download Resume (PDF)</a><a class="button button-outline" href="assets/docs/Daniel-Matthew-Desiderio-Cover-Letter.pdf" download>Download Cover Letter (PDF)</a></div>
+            <p class="help-text">The PDFs are placeholders until the final documents are added.</p>
+          </div>
+          <div class="contact-form-card reveal">
+            <form name="portfolio-contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="portfolio-contact">
+              <p class="honeypot"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+              <div class="form-row"><div class="field"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="120" required></div><div class="field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" maxlength="254" required></div></div>
+              <div class="field"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" placeholder="Internship inquiry" maxlength="140"></div>
+              <div class="field"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="6" placeholder="Write your message" maxlength="3000" required></textarea></div>
+              <button class="button button-primary" type="submit">Send Message</button>
+              <p class="form-note">Email directly instead: <a href="mailto:danielmatthew820@gmail.com?subject=Internship%20Inquiry">danielmatthew820@gmail.com</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="page-bottomline"><a href="#home">Back to top <span aria-hidden="true">↑</span></a><span>08 — 08</span></div>
+    </section>
+    <footer class="site-footer"><p>© 2026 Daniel Matthew R. Desiderio</p><p>IT · Data · People · Built with HTML, CSS &amp; JavaScript</p></footer>
+  </main>
+
+  <button class="floating-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+  <dialog id="certificate-dialog" class="certificate-dialog" aria-labelledby="certificate-dialog-title" aria-describedby="certificate-dialog-description">
+    <div class="dialog-content"><div class="dialog-header"><div><span class="micro-label">Certificate preview</span><h2 id="certificate-dialog-title">Certificate</h2></div><button type="button" class="dialog-close" id="certificate-dialog-close" aria-label="Close certificate preview">×</button></div><p id="certificate-dialog-description">This is a placeholder image until the original certificate is uploaded.</p><img id="certificate-dialog-image" src="assets/images/certs/placeholder.svg" alt="Certificate image" width="900" height="640"></div>
+  </dialog>
+</body>
+</html>

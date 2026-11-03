@@ -1,0 +1,11 @@
+[build]
+  publish = "."
+
+# No build command is needed. Netlify detects the contact form in index.html.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"

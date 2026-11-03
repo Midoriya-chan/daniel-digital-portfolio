@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640" role="img" aria-labelledby="title desc">
+ <title id="title">Certificate image coming soon</title><desc id="desc">Neutral illustration displayed when a certificate image is missing.</desc>
+ <rect width="900" height="640" fill="#e9f0fa"/><rect x="68" y="60" width="764" height="520" rx="23" fill="#fff" stroke="#c6d8ed" stroke-width="5"/>
+ <rect x="123" y="113" width="654" height="414" rx="15" fill="#f6f9fe" stroke="#dfe8f5" stroke-dasharray="12 10" stroke-width="3"/>
+ <circle cx="450" cy="247" r="48" fill="#deebfc"/><path d="M432 247l14 15 29-33" fill="none" stroke="#1f3864" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+ <text x="450" y="345" text-anchor="middle" fill="#1f3864" font-family="Arial,sans-serif" font-weight="bold" font-size="36">Certificate image</text>
+ <text x="450" y="391" text-anchor="middle" fill="#526986" font-family="Arial,sans-serif" font-size="31">coming soon</text>
+ <text x="450" y="465" text-anchor="middle" fill="#597394" font-family="Arial,sans-serif" font-size="21">Replace with your verified certificate</text>
+</svg>
