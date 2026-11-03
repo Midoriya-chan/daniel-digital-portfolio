@@ -8,7 +8,7 @@
 
 *A personal collection of academic projects, technical competencies, certifications, achievements, and professional experiences.*
 
-**[Portfolio Website — link to be added after Netlify deployment](#deployment)** · **[Contact](mailto:danielmatthew820@gmail.com)**
+**[Portfolio Website — https://daniel-desiderio-portfolio.netlify.app/](#deployment)** · **[Contact](mailto:danielmatthew820@gmail.com)**
 
 </div>
 
