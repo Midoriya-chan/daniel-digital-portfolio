@@ -43,7 +43,6 @@
       profileStack[0].querySelector('img').src = after.src;
       profileStack[1].querySelector('img').src = next.src;
       profileImage.src = photo.src;
-      sidebarProfileImage.src = photo.src;
       profileNext.classList.remove('is-advancing');
       void profileNext.offsetWidth;
       profileNext.classList.add('is-advancing');
