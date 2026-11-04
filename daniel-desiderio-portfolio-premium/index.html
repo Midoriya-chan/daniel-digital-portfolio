@@ -43,7 +43,7 @@
     </div>
     <div class="side-person">
       <span class="sidebar-orbit" aria-hidden="true"></span>
-      <div class="side-avatar" aria-hidden="true">DMD</div>
+      <img id="sidebar-profile-image" src="assets/images/project-photo.jpg" alt="" aria-hidden="true" width="720" height="880">
       <strong>Daniel Matthew R. Desiderio</strong>
       <span>BSIT Student</span>
       <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>Seeking IT internship</span>
@@ -69,15 +69,15 @@
   <main class="site-main" id="main-content" tabindex="-1">
     <!-- 01 / COVER PAGE -->
     <section class="folio-section section-hero" data-chapter="01" id="home" aria-labelledby="hero-title">
-      <div class="page-topline"><span>My Portfolio / 2026</span><span>BSIT Student · Internship Applicant</span></div>
+      <div class="page-topline"><span>My Portfolio / 2026</span><span>Internship Applicant</span></div>
       <div class="section-content hero-content">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="hero-left reveal">
           <p class="section-kicker">01 · Cover Page</p>
           <span class="intro-pill"><span class="intro-spark" aria-hidden="true"></span>Hello, I am Daniel</span>
-          <h1 id="hero-title"><span class="desktop-headline">BSIT Student.<br><em>Aspiring IT Professional.</em><br>Ready to Intern.</span><span class="mobile-headline">Daniel Matthew R. Desiderio</span></h1>
+          <h1 id="hero-title"><span class="desktop-headline">BSIT Student.<br><em>Aspiring IT Professional.</em><br>Ready to Contribute.</span><span class="mobile-headline">Daniel Matthew R. Desiderio</span></h1>
           <p class="mobile-hero-subtitle">BSIT Student | Aspiring SAP Analytics Consultant Intern</p>
-          <p class="hero-intro">I'm Daniel Matthew R. Desiderio, a BSIT student learning SQL, Python, and SAP S/4HANA. I'm seeking an IT internship where I can contribute, collaborate, and grow.</p>
+          <p class="hero-intro">I'm Daniel Matthew R. Desiderio, a BSIT student at STI College Dasmariñas building foundational skills in Java, Python, C#, SQL, and SAP S/4HANA. Through coursework and team projects, I practice developing solutions, sharing ideas, and working collaboratively. I'm seeking an IT internship where I can apply what I've learned, contribute to a team, and continue growing.</p>
           <div class="hero-code" aria-label="Areas of interest, presented as example code">
             <div class="code-top"><span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>my-focus.js</span><span>JS</span></div>
             <div class="code-lines"><div><span class="line-index">01</span><span><b>const</b> <em>focus</em> = [<strong>'Data'</strong>, <strong>'Systems'</strong>];</span></div><div><span class="line-index">02</span><span><b>const</b> <em>nextStep</em> = <strong>'IT Internship'</strong>;</span></div><div><span class="line-index">03</span><span class="code-comment">// learn · build · contribute</span><span class="code-cursor" aria-hidden="true"></span></div></div>
@@ -90,8 +90,10 @@
         </div>
         <div class="hero-right reveal">
           <button class="hero-image-wrap" id="hero-photo-next" type="button" aria-label="Show next profile photo">
+            <span class="photo-card photo-card-back" aria-hidden="true"><img src="assets/images/profile-slides/portrait-coast.png" alt=""></span>
+            <span class="photo-card photo-card-middle" aria-hidden="true"><img src="assets/images/profile-slides/portrait-arch.png" alt=""></span>
+            <span class="photo-card photo-card-front"><img id="hero-profile-image" src="assets/images/project-photo.jpg" alt="Daniel Matthew R. Desiderio wearing a white long-sleeve shirt" width="720" height="880" fetchpriority="high"></span>
             <span class="photo-corner photo-corner-a" aria-hidden="true"></span><span class="photo-corner photo-corner-b" aria-hidden="true"></span>
-            <img id="hero-profile-image" src="assets/images/project-photo.jpg" alt="Daniel Matthew R. Desiderio wearing a white blazer" width="720" height="880" fetchpriority="high">
           </button>
           <div class="profile-slideshow-controls" aria-label="Profile photo slideshow controls">
             <span id="profile-slide-position">Photo 1 of 5</span>

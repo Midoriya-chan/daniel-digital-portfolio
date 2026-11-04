@@ -22,10 +22,11 @@
   ];
   const profileNext = document.getElementById('hero-photo-next');
   const profileImage = document.getElementById('hero-profile-image');
+  const profileStack = [...document.querySelectorAll('.photo-card')];
   const profilePosition = document.getElementById('profile-slide-position');
   const profileToggle = document.getElementById('profile-slideshow-toggle');
   const reducedMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (profileNext && profileImage && profilePosition && profileToggle) {
+  if (profileNext && profileImage && profileStack.length === 3 && sidebarProfileImage && profilePosition && profileToggle) {
     let currentProfileSlide = 0;
     let manuallyPaused = reducedMotionPreference.matches;
     if (manuallyPaused) {
@@ -36,9 +37,14 @@
     const syncProfileSlide = () => {
       const photo = profileSlides[currentProfileSlide];
       profileImage.alt = photo.alt;
+      const next = profileSlides[(currentProfileSlide + 1) % profileSlides.length];
+      const after = profileSlides[(currentProfileSlide + 2) % profileSlides.length];
+      profileStack[0].querySelector('img').src = after.src;
+      profileStack[1].querySelector('img').src = next.src;
       profileImage.classList.add('is-changing');
       window.setTimeout(() => {
         profileImage.src = photo.src;
+        sidebarProfileImage.src = photo.src;
         requestAnimationFrame(() => profileImage.classList.remove('is-changing'));
       }, 160);
       profilePosition.textContent = `Photo ${currentProfileSlide + 1} of ${profileSlides.length}`;
