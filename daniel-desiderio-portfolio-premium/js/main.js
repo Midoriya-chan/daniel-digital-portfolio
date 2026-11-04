@@ -59,9 +59,7 @@
   const profileSlides = [
     {src:'assets/images/project-photo.jpg', alt:'Daniel Matthew R. Desiderio wearing a white blazer'},
     {src:'assets/images/profile-slides/portrait-arch.png', alt:'Daniel standing beside a stone arch in a black shirt'},
-    {src:'assets/images/profile-slides/portrait-coast.png', alt:'Daniel looking toward the coast from a viewpoint'},
-    {src:'assets/images/profile-slides/portrait-childhood-table.png', alt:'Daniel as a child sitting at a table'},
-    {src:'assets/images/profile-slides/portrait-childhood-outdoors.png', alt:'Daniel as a child outdoors wearing a blue hat and orange shirt'}
+    {src:'assets/images/profile-slides/portrait-coast.png', alt:'Daniel looking toward the coast from a viewpoint'}
   ];
   const profileNext = document.getElementById('hero-photo-next');
   const profileImage = document.getElementById('hero-profile-image');
