@@ -9,7 +9,17 @@
   const toTop = document.getElementById('back-to-top');
   const progressBar = document.getElementById('reading-progress-bar');
   const mobile = window.matchMedia('(max-width: 900px)');
+  const collapseSidebarButton = document.getElementById('sidebar-collapse-toggle');
   let opener = null;
+
+  if (collapseSidebarButton) {
+    collapseSidebarButton.addEventListener('click', () => {
+      if (mobile.matches) return;
+      const collapsed = document.body.classList.toggle('sidebar-collapsed');
+      collapseSidebarButton.setAttribute('aria-expanded', String(!collapsed));
+      collapseSidebarButton.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Minimize sidebar');
+    });
+  }
 
   // Profile carousel: manual image clicks advance immediately; autoplay pauses for
   // reduced-motion preferences, hidden tabs, hover, and keyboard focus.

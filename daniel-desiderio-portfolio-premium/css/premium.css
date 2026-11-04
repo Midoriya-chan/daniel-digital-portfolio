@@ -25,6 +25,8 @@ body { background: var(--paper); }
 .reading-progress span { display:block; width:0; height:100%; background:linear-gradient(90deg,#1f4f96,#2c82ef,#77d5ff); box-shadow:0 0 12px rgba(44,130,239,.4); }
 .sidebar { padding: 20px 17px 18px; border-right:1px solid #e6ecf6; background:linear-gradient(180deg, #ffffff 0%, #fbfcff 68%, #f4f8ff 100%); }
 .side-brand { padding: 0 0 20px; border-bottom-color:#e6ebf4; }
+.side-brand-row { display:flex; align-items:center; gap:9px; }
+.sidebar-collapse-toggle { border:0; cursor:pointer; }
 .brand-icon { border-radius:12px; height:42px; width:42px; font-size:12px; background:linear-gradient(143deg,#11284d,#2669cc); box-shadow:0 8px 22px rgba(23,56,112,.22); position:relative; overflow:hidden; }
 .brand-icon::after { content:''; position:absolute; width:50px; height:10px; background:rgba(255,255,255,.14); transform:rotate(-42deg); top:4px; right:-21px; }
 .brand-copy strong { font-size:12px; }
@@ -48,9 +50,21 @@ body { background: var(--paper); }
 .nav-link.is-active { background:linear-gradient(100deg,#e9f1ff,#f4f8ff); box-shadow:inset 3px 0 #2264c9; color:#173c77; }
 .nav-link > span { font-size:10px; }
 .sidebar-foot { padding-top:20px; gap:9px; }
+.sidebar-quote { margin:auto 4px 8px; padding:12px 10px; border-left:2px solid #8bb5eb; color:#556b8b; font-size:10px; line-height:1.6; font-style:italic; }
 .sidebar-foot-label { font-size:9px; color:#51627d; text-transform:uppercase; letter-spacing:.08em; display:flex; align-items:center; justify-content:center; gap:7px; }
 .sidebar-foot-label span { width:6px; height:6px; background:#227ccc; border-radius:50%; }
 .side-download { border-radius:11px; width:100%; }
+@media (min-width:901px) {
+ body.sidebar-collapsed { --sidebar-width:76px; }
+ body.sidebar-collapsed .sidebar { padding-inline:10px; }
+ body.sidebar-collapsed .side-brand { padding-bottom:16px; }
+ body.sidebar-collapsed .side-brand-row { justify-content:center; }
+ body.sidebar-collapsed .brand-copy, body.sidebar-collapsed .side-nav-label, body.sidebar-collapsed .sidebar-quote, body.sidebar-collapsed .side-download, body.sidebar-collapsed .sidebar-foot small { display:none; }
+ body.sidebar-collapsed .nav-link { justify-content:center; gap:0; padding-inline:4px; font-size:0; }
+ body.sidebar-collapsed .nav-link > span { font-size:10px; }
+ body.sidebar-collapsed .nav-link::after { display:none; }
+ body.sidebar-collapsed .sidebar-foot { margin-top:auto; }
+}
 
 /* Decorative chapter numbers, fine grids and varied section atmospheres. */
 .folio-section { position:relative; isolation:isolate; overflow:hidden; border-bottom:1px solid #e4ebf5; background:var(--paper); }
