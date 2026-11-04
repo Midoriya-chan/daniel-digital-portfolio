@@ -22,6 +22,7 @@
   ];
   const profileNext = document.getElementById('hero-photo-next');
   const profileImage = document.getElementById('hero-profile-image');
+  const sidebarProfileImage = document.getElementById('sidebar-profile-image');
   const profileStack = [...document.querySelectorAll('.photo-card')];
   const profilePosition = document.getElementById('profile-slide-position');
   const profileToggle = document.getElementById('profile-slideshow-toggle');
