@@ -196,6 +196,39 @@
     });
   }
 
+  // Project cards open a detail view using only the documented project information.
+  const projectDialog = document.getElementById('project-dialog');
+  const projectDialogClose = document.getElementById('project-dialog-close');
+  let projectTrigger = null;
+  document.querySelectorAll('.project-open').forEach(button => button.addEventListener('click', () => {
+    const card = button.closest('.project-card');
+    const title = card.querySelector('h3').textContent;
+    const thumbnail = card.querySelector('.project-card-image img');
+    projectTrigger = button;
+    document.getElementById('project-dialog-category').textContent = card.querySelector('.project-index').textContent;
+    document.getElementById('project-dialog-title').textContent = title;
+    document.getElementById('project-dialog-overview').textContent = card.querySelector('.project-card-content > p').textContent;
+    document.getElementById('project-dialog-programming').textContent = button.dataset.programming;
+    const image = document.getElementById('project-dialog-image');
+    image.src = thumbnail.getAttribute('src');
+    image.alt = thumbnail.alt;
+    const highlights = document.getElementById('project-dialog-highlights');
+    highlights.replaceChildren(...[...card.querySelectorAll('.project-highlights span')].map(item => {
+      const feature = document.createElement('span');
+      feature.textContent = item.textContent;
+      return feature;
+    }));
+    projectDialog.showModal();
+    document.body.classList.add('modal-open');
+    projectDialogClose.focus();
+  }));
+  projectDialogClose.addEventListener('click', () => projectDialog.close());
+  projectDialog.addEventListener('click', event => { if (event.target === projectDialog) projectDialog.close(); });
+  projectDialog.addEventListener('close', () => {
+    document.body.classList.remove('modal-open');
+    if (projectTrigger?.isConnected) projectTrigger.focus();
+  });
+
   // Certificate gallery arrows + native horizontal swipe/scroll/keyboard support.
   const gallery = document.getElementById('certificate-track');
   const slide = direction => {
