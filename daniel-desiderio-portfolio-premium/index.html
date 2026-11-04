@@ -303,13 +303,14 @@
           </div>
           <div class="contact-form-card reveal">
             <div class="contact-form-heading"><span class="micro-label">Send a message</span><h3>Start a conversation</h3><p>Use the form below to share your message.</p></div>
-            <form name="portfolio-contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+            <form name="portfolio-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="portfolio-contact">
               <p class="honeypot"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
               <div class="form-row"><div class="field"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="120" required></div><div class="field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" maxlength="254" required></div></div>
               <div class="field"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" placeholder="Internship inquiry" maxlength="140"></div>
               <div class="field"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="6" placeholder="Write your message" maxlength="3000" required></textarea></div>
-              <button class="button button-primary" type="submit">Send Message</button>
+              <button class="button button-primary" type="submit" id="contact-submit">Send Message</button>
+              <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite" hidden></p>
               <p class="form-note">Email directly instead: <a href="mailto:danielmatthew820@gmail.com?subject=Internship%20Inquiry">danielmatthew820@gmail.com</a></p>
             </form>
           </div>
