@@ -218,6 +218,9 @@
       feature.textContent = item.textContent;
       return feature;
     }));
+    const liveLink = document.getElementById('project-dialog-live-link');
+    liveLink.hidden = !button.dataset.liveUrl;
+    if (button.dataset.liveUrl) liveLink.href = button.dataset.liveUrl;
     projectDialog.showModal();
     document.body.classList.add('modal-open');
     projectDialogClose.focus();
