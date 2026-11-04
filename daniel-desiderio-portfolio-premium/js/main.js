@@ -28,15 +28,29 @@
     const detailDate = document.getElementById('education-detail-date');
     const detailDegree = document.getElementById('education-detail-degree');
     const detailSchool = document.getElementById('education-detail-school');
+    const educationPhoto = document.getElementById('education-photo');
+    const reduceEducationMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let educationSwapTimer;
+    educationButtons.forEach(button => { const photo = new Image(); photo.src = button.dataset.photo; });
     educationButtons.forEach(button => button.addEventListener('click', () => {
       educationButtons.forEach(item => {
         const selected = item === button;
         item.setAttribute('aria-pressed', String(selected));
         item.closest('.education-item').classList.toggle('is-selected', selected);
       });
-      detailDate.textContent = button.querySelector('.timeline-date').textContent;
-      detailDegree.textContent = button.querySelector('.education-degree').textContent;
-      detailSchool.textContent = button.querySelector('.education-school').textContent;
+      window.clearTimeout(educationSwapTimer);
+      educationDetail.classList.add('is-switching');
+      const showSchool = () => {
+        const school = button.querySelector('.education-school').textContent;
+        detailDate.textContent = button.querySelector('.timeline-date').textContent;
+        detailDegree.textContent = button.querySelector('.education-degree').textContent;
+        detailSchool.textContent = school;
+        educationPhoto.src = button.dataset.photo;
+        educationPhoto.alt = `Photo of ${school}`;
+        educationDetail.classList.remove('is-switching');
+      };
+      if (reduceEducationMotion.matches) showSchool();
+      else educationSwapTimer = window.setTimeout(showSchool, 160);
     }));
   }
 
