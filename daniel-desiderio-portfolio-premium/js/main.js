@@ -21,6 +21,25 @@
     });
   }
 
+  // Education cards share one detail panel; the active timeline dot follows selection.
+  const educationButtons = [...document.querySelectorAll('.education-select')];
+  const educationDetail = document.getElementById('education-detail');
+  if (educationButtons.length && educationDetail) {
+    const detailDate = document.getElementById('education-detail-date');
+    const detailDegree = document.getElementById('education-detail-degree');
+    const detailSchool = document.getElementById('education-detail-school');
+    educationButtons.forEach(button => button.addEventListener('click', () => {
+      educationButtons.forEach(item => {
+        const selected = item === button;
+        item.setAttribute('aria-pressed', String(selected));
+        item.closest('.education-item').classList.toggle('is-selected', selected);
+      });
+      detailDate.textContent = button.querySelector('.timeline-date').textContent;
+      detailDegree.textContent = button.querySelector('.education-degree').textContent;
+      detailSchool.textContent = button.querySelector('.education-school').textContent;
+    }));
+  }
+
   // Profile carousel: manual image clicks advance immediately; autoplay pauses for
   // reduced-motion preferences, hidden tabs, hover, and keyboard focus.
   const profileSlides = [

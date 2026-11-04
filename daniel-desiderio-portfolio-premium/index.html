@@ -53,8 +53,8 @@
       <a href="#contact" class="nav-link"><span>08</span> Contact</a>
     </nav>
     <div class="sidebar-foot">
-      <p class="sidebar-quote">“Build with curiosity. Solve with purpose.”</p>
-      <a class="button button-primary side-download" href="assets/docs/Daniel-Matthew-Desiderio-Resume.pdf" download>Download Resume (PDF)</a>
+      <p class="sidebar-quote"><span class="sidebar-quote-icon" aria-hidden="true">“</span><span class="sidebar-quote-text">Build with curiosity. Solve with purpose.</span></p>
+      <a class="button button-primary side-download" href="assets/docs/Daniel-Matthew-Desiderio-Resume.pdf" download aria-label="Download Resume (PDF)"><span class="download-icon" aria-hidden="true">↓</span><span class="download-label">Download Resume (PDF)</span></a>
       <small>© 2026 Daniel Matthew R. Desiderio</small>
     </div>
   </aside>
@@ -133,20 +133,17 @@
       <div class="section-content">
         <div class="section-heading reveal"><p class="section-kicker">03 · Educational Background</p><h2 id="education-title">An ongoing journey of learning.</h2><p>My academic path has shaped the technical foundation I am continuing to develop in information technology.</p></div>
         <div class="education-grid">
-          <ol class="education-timeline reveal">
-            <li class="education-item"><span class="timeline-date">2023 – 2027</span><h3>Bachelor of Science in Information Technology</h3><p>STI College Dasmariñas</p></li>
-            <li class="education-item"><span class="timeline-date">2021 – 2023</span><h3>Senior High School (STEM)</h3><p>Southern Philippines Institute of Science and Technology, Imus City, Cavite</p></li>
-            <li class="education-item"><span class="timeline-date">2017 – 2021</span><h3>Junior High School</h3><p>St. Odilard School, Imus City, Cavite</p></li>
-            <li class="education-item"><span class="timeline-date">2011 – 2017</span><h3>Elementary Education</h3><p>Bayan Luma 1 Elementary School, Imus City, Cavite</p></li>
+          <ol class="education-timeline reveal" aria-label="Education history">
+            <li class="education-item is-selected"><button class="education-select" type="button" aria-controls="education-detail" aria-pressed="true"><span class="timeline-date">2023 – 2027</span><span class="education-degree">Bachelor of Science in Information Technology</span><span class="education-school">STI College Dasmariñas</span></button></li>
+            <li class="education-item"><button class="education-select" type="button" aria-controls="education-detail" aria-pressed="false"><span class="timeline-date">2021 – 2023</span><span class="education-degree">Senior High School (STEM)</span><span class="education-school">Southern Philippines Institute of Science and Technology, Imus City, Cavite</span></button></li>
+            <li class="education-item"><button class="education-select" type="button" aria-controls="education-detail" aria-pressed="false"><span class="timeline-date">2017 – 2021</span><span class="education-degree">Junior High School</span><span class="education-school">St. Odilard School, Imus City, Cavite</span></button></li>
+            <li class="education-item"><button class="education-select" type="button" aria-controls="education-detail" aria-pressed="false"><span class="timeline-date">2011 – 2017</span><span class="education-degree">Elementary Education</span><span class="education-school">Bayan Luma 1 Elementary School, Imus City, Cavite</span></button></li>
           </ol>
           <div class="education-aside reveal">
-            <div class="learning-card" aria-label="My current learning interests">
-              <div class="learning-card-top"><span>INFORMATION TECHNOLOGY</span><span class="learn-signal" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="learning-glyph" aria-hidden="true"><span>&lt;/&gt;</span><span class="glyph-ring"></span></div>
-              <p>Connecting code, data, and business processes.</p>
-              <div class="learning-topics"><span>Programming</span><span>SQL</span><span>SAP S/4HANA</span></div>
-            </div>
-            <div class="fact-card"><span class="micro-label">Current program</span><strong>Bachelor of Science in Information Technology · STI College Dasmariñas</strong></div>
+            <article class="education-detail" id="education-detail" aria-live="polite">
+              <div class="education-photo-slot"><span class="education-photo-symbol" aria-hidden="true">▧</span><span>School photo coming soon</span></div>
+              <div class="education-detail-copy"><span class="micro-label" id="education-detail-date">2023 – 2027</span><h3 id="education-detail-degree">Bachelor of Science in Information Technology</h3><p id="education-detail-school">STI College Dasmariñas</p></div>
+            </article>
           </div>
         </div>
       </div>
@@ -158,6 +155,15 @@
       <div class="page-topline"><span>My Portfolio / 2026</span><span>Internship Applicant</span></div>
       <div class="section-content">
         <div class="section-heading reveal"><p class="section-kicker">04 · Skills and Competencies</p><h2 id="skills-title">My technical toolkit.</h2><p>Technical tools and people skills I bring to collaborative work.</p></div>
+        <div class="skills-learning-aside reveal">
+            <div class="learning-card" aria-label="My current learning interests">
+              <div class="learning-card-top"><span>INFORMATION TECHNOLOGY</span><span class="learn-signal" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <div class="learning-glyph" aria-hidden="true"><span>&lt;/&gt;</span><span class="glyph-ring"></span></div>
+              <p>Connecting code, data, and business processes.</p>
+              <div class="learning-topics"><span>Programming</span><span>SQL</span><span>SAP S/4HANA</span></div>
+            </div>
+            <div class="fact-card"><span class="micro-label">Current program</span><strong>Bachelor of Science in Information Technology · STI College Dasmariñas</strong></div>
+        </div>
         <div class="skill-panels">
           <article class="skill-panel skill-panel-technical reveal">
             <div class="skill-panel-heading"><div><span class="skill-panel-kicker">Tools &amp; software</span><h3>Technical Skills</h3></div><span class="skill-panel-mark" aria-hidden="true">01</span></div>

@@ -51,6 +51,9 @@ body { background: var(--paper); }
 .nav-link > span { font-size:10px; }
 .sidebar-foot { padding-top:20px; gap:9px; }
 .sidebar-quote { margin:auto 4px 8px; padding:12px 10px; border-left:2px solid #8bb5eb; color:#556b8b; font-size:10px; line-height:1.6; font-style:italic; }
+.sidebar-quote-icon { display:block; color:#2461ca; font-size:24px; font-style:normal; font-weight:800; line-height:1; }
+.side-download { display:flex; align-items:center; justify-content:center; gap:8px; }
+.download-icon { font-size:17px; line-height:1; }
 .sidebar-foot-label { font-size:9px; color:#51627d; text-transform:uppercase; letter-spacing:.08em; display:flex; align-items:center; justify-content:center; gap:7px; }
 .sidebar-foot-label span { width:6px; height:6px; background:#227ccc; border-radius:50%; }
 .side-download { border-radius:11px; width:100%; }
@@ -59,11 +62,15 @@ body { background: var(--paper); }
  body.sidebar-collapsed .sidebar { padding-inline:10px; }
  body.sidebar-collapsed .side-brand { padding-bottom:16px; }
  body.sidebar-collapsed .side-brand-row { justify-content:center; }
- body.sidebar-collapsed .brand-copy, body.sidebar-collapsed .side-nav-label, body.sidebar-collapsed .sidebar-quote, body.sidebar-collapsed .side-download, body.sidebar-collapsed .sidebar-foot small { display:none; }
+ body.sidebar-collapsed .brand-copy, body.sidebar-collapsed .side-nav-label, body.sidebar-collapsed .sidebar-quote-text, body.sidebar-collapsed .download-label, body.sidebar-collapsed .sidebar-foot small { display:none; }
+ body.sidebar-collapsed .sidebar-quote { display:grid; place-items:center; padding:8px 0; margin:0; border-left:0; }
+ body.sidebar-collapsed .sidebar-quote-icon { font-size:26px; }
+ body.sidebar-collapsed .side-download { width:100%; min-width:0; padding:10px 0; }
  body.sidebar-collapsed .nav-link { justify-content:center; gap:0; padding-inline:4px; font-size:0; }
  body.sidebar-collapsed .nav-link > span { font-size:10px; }
  body.sidebar-collapsed .nav-link::after { display:none; }
  body.sidebar-collapsed .sidebar-foot { margin-top:auto; }
+ .side-navigation { flex:1; justify-content:space-around; }
 }
 
 /* Decorative chapter numbers, fine grids and varied section atmospheres. */
@@ -179,7 +186,23 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .education-timeline { border-left:2px solid #cbd9ed; padding-left:32px; margin-left:9px; }
 .education-item { padding-bottom:30px; }
 .education-item::before { left:-40px; height:15px;width:15px;box-shadow:0 0 0 5px #f3f7fd; }
-.education-item:first-child::before { box-shadow:0 0 0 5px #e2edff; }
+.education-item:first-child::before { background:#fff; border-color:#8594a8; box-shadow:0 0 0 5px #f3f7fd; }
+.education-item.is-selected::before { background:#1f4f96; border-color:#1f4f96; box-shadow:0 0 0 5px #e2edff; }
+.education-select { display:block; width:100%; padding:3px 8px 6px; text-align:left; color:inherit; background:transparent; border:0; border-radius:9px; }
+.education-select:hover,.education-select:focus-visible { background:#eaf2ff; }
+.education-item.is-selected .education-select { background:rgba(224,237,255,.55); }
+.education-degree { display:block; font-size:16px; font-weight:800; line-height:1.4; letter-spacing:-.02em; }
+.education-school { display:block; margin-top:4px; color:#536176; font-size:12px; line-height:1.6; }
+.education-detail { overflow:hidden; border:1px solid #d5e2f4; border-radius:18px; background:white; box-shadow:0 18px 40px rgba(19,53,103,.08); }
+.education-photo-slot { display:grid; place-content:center; gap:5px; min-height:230px; background:linear-gradient(135deg,#dfeaff,#f6f9ff); color:#47658d; text-align:center; font-size:11px; }
+.education-photo-symbol { font-size:38px; line-height:1; color:#6e9bd6; }
+.education-detail-copy { padding:18px 22px 20px; }
+.education-detail-copy h3 { margin:5px 0; font-size:17px; line-height:1.4; }
+.education-detail-copy p { margin:0; color:#52637c; font-size:12px; }
+.skills-learning-aside { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(200px,.65fr); gap:16px; align-items:stretch; margin-bottom:20px; }
+.skills-learning-aside .learning-card { min-height:220px; }
+.skills-learning-aside .fact-card { display:flex; flex-direction:column; justify-content:center; }
+@media (max-width:700px) { .skills-learning-aside { grid-template-columns:1fr; } }
 .education-item h3 {font-size:16px;line-height:1.4;letter-spacing:-.02em;}
 .education-item p {font-size:12px;line-height:1.6;}
 .timeline-date { color:#3667a9;letter-spacing:.12em; }
