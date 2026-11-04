@@ -41,12 +41,11 @@
       const after = profileSlides[(currentProfileSlide + 2) % profileSlides.length];
       profileStack[0].querySelector('img').src = after.src;
       profileStack[1].querySelector('img').src = next.src;
-      profileImage.classList.add('is-changing');
-      window.setTimeout(() => {
-        profileImage.src = photo.src;
-        sidebarProfileImage.src = photo.src;
-        requestAnimationFrame(() => profileImage.classList.remove('is-changing'));
-      }, 160);
+      profileImage.src = photo.src;
+      sidebarProfileImage.src = photo.src;
+      profileNext.classList.remove('is-advancing');
+      void profileNext.offsetWidth;
+      profileNext.classList.add('is-advancing');
       profilePosition.textContent = `Photo ${currentProfileSlide + 1} of ${profileSlides.length}`;
       profileNext.setAttribute('aria-label', `Show next profile photo. Current photo ${currentProfileSlide + 1} of ${profileSlides.length}.`);
     };
@@ -62,7 +61,7 @@
       profileToggle.setAttribute('aria-pressed', String(manuallyPaused));
     });
     const canAutoplay = () => !manuallyPaused && !document.hidden && !profileNext.matches(':hover') && !profileNext.matches(':focus-within') && !profileToggle.matches(':focus');
-    window.setInterval(() => { if (canAutoplay()) advanceProfileSlide(); }, 12000);
+    window.setInterval(() => { if (canAutoplay()) advanceProfileSlide(); }, 5000);
     reducedMotionPreference.addEventListener?.('change', event => {
       if (event.matches) {
         manuallyPaused = true;
