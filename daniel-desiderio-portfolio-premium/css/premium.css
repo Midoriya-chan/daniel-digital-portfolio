@@ -207,10 +207,21 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .education-detail-copy { padding:18px 22px 20px; }
 .education-detail-copy h3 { margin:5px 0; font-size:17px; line-height:1.4; }
 .education-detail-copy p { margin:0; color:#52637c; font-size:12px; }
-.skills-learning-aside { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(200px,.65fr); gap:16px; align-items:stretch; margin-bottom:20px; }
-.skills-learning-aside .learning-card { min-height:220px; }
-.skills-learning-aside .fact-card { display:flex; flex-direction:column; justify-content:center; }
-@media (max-width:700px) { .skills-learning-aside { grid-template-columns:1fr; } }
+.skills-learning-aside { margin-bottom:20px; }
+.skills-learning-aside .learning-card { min-height:0; gap:18px; }
+.learning-card-main { display:grid; grid-template-columns:150px minmax(0,1fr); gap:22px; align-items:center; position:relative; z-index:1; }
+.learning-card-main .learning-glyph { margin:0; }
+.learning-eyebrow { display:block; margin-bottom:5px; color:#a9caef; font-size:9px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+.learning-intro h3 { margin:0 0 7px; color:#fff; font-size:clamp(19px,2.1vw,27px); line-height:1.25; }
+.learning-card .learning-intro p { margin:0; color:#cfdef2; font-size:12px; font-weight:500; line-height:1.6; letter-spacing:0; }
+.learning-highlights { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; position:relative; z-index:1; }
+.learning-highlights > div { display:flex; align-items:center; gap:10px; min-width:0; padding:11px 13px; border:1px solid rgba(166,204,255,.26); border-radius:11px; background:rgba(255,255,255,.07); }
+.learning-highlight-icon { display:grid; place-items:center; flex:0 0 31px; width:31px; height:31px; border-radius:8px; background:rgba(119,186,255,.16); color:#b5ddff; }
+.learning-highlight-icon svg { width:20px; height:20px; }
+.learning-highlights strong,.learning-highlights small { display:block; line-height:1.35; }
+.learning-highlights strong { color:#fff; font-size:11px; }
+.learning-highlights small { color:#bcd2ee; font-size:9px; }
+@media (max-width:700px) { .learning-card-main { grid-template-columns:1fr; gap:4px; } .learning-card-main .learning-glyph { width:76px; height:76px; margin:0 auto 5px; } .learning-highlights { grid-template-columns:1fr; } }
 .education-item h3 {font-size:16px;line-height:1.4;letter-spacing:-.02em;}
 .education-item p {font-size:12px;line-height:1.6;}
 .timeline-date { color:#3667a9;letter-spacing:.12em; }
