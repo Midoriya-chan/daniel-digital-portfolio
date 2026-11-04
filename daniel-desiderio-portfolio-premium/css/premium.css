@@ -59,17 +59,33 @@ body { background: var(--paper); }
 .sidebar-foot-label span { width:6px; height:6px; background:#227ccc; border-radius:50%; }
 .side-download { border-radius:11px; width:100%; }
 @media (min-width:901px) {
+ .sidebar { overflow-x:hidden; transition:width .4s var(--ease),padding-inline .4s var(--ease); }
+ .site-main { transition:margin-left .4s var(--ease); }
+ .side-brand-link { min-width:0; max-width:190px; overflow:hidden; transition:max-width .4s var(--ease),opacity .2s ease; }
+ .side-nav-label { max-height:30px; overflow:hidden; transition:max-height .3s var(--ease),margin .3s var(--ease),opacity .2s ease; }
+ .nav-link { transition:background .25s ease,transform .25s ease,color .25s ease,box-shadow .25s ease,gap .4s var(--ease),padding .4s var(--ease); }
+ .nav-link > .nav-text { display:inline-block; max-width:155px; overflow:hidden; white-space:nowrap; transition:max-width .4s var(--ease),opacity .22s ease,transform .4s var(--ease); }
+ .nav-icon { transition:width .4s var(--ease),flex-basis .4s var(--ease),transform .4s var(--ease),color .25s ease; }
+ .sidebar-quote { transition:padding .4s var(--ease),margin .4s var(--ease); }
+ .sidebar-quote-icon { transition:width .4s var(--ease),height .4s var(--ease),margin .4s var(--ease); }
+ .sidebar-quote-text { display:block; max-height:50px; overflow:hidden; transition:max-height .3s var(--ease),opacity .2s ease; }
+ .side-download { transition:gap .4s var(--ease),padding .4s var(--ease),background .24s,box-shadow .24s; }
+ .download-label { max-width:180px; overflow:hidden; white-space:nowrap; transition:max-width .4s var(--ease),opacity .2s ease; }
+ .sidebar-foot small { display:block; max-height:22px; overflow:hidden; transition:max-height .3s var(--ease),opacity .2s ease; }
  body.sidebar-collapsed { --sidebar-width:76px; }
  body.sidebar-collapsed .sidebar { padding-inline:10px; }
  body.sidebar-collapsed .side-brand { padding-bottom:16px; }
  body.sidebar-collapsed .side-brand-row { justify-content:center; }
- body.sidebar-collapsed .brand-copy, body.sidebar-collapsed .side-nav-label, body.sidebar-collapsed .sidebar-quote-text, body.sidebar-collapsed .download-label, body.sidebar-collapsed .sidebar-foot small { display:none; }
+ body.sidebar-collapsed .side-brand-link { max-width:0; opacity:0; visibility:hidden; pointer-events:none; }
+ body.sidebar-collapsed .side-nav-label { max-height:0; margin:0; opacity:0; }
+ body.sidebar-collapsed .sidebar-quote-text, body.sidebar-collapsed .sidebar-foot small { max-height:0; opacity:0; }
+ body.sidebar-collapsed .download-label { max-width:0; opacity:0; }
  body.sidebar-collapsed .sidebar-quote { display:grid; place-items:center; padding:8px 0; margin:0; border-left:0; }
  body.sidebar-collapsed .sidebar-quote-icon { width:34px; height:34px; margin:0; }
- body.sidebar-collapsed .side-download { width:100%; min-width:0; padding:10px 0; }
- body.sidebar-collapsed .nav-link { justify-content:center; gap:0; padding-inline:4px; }
- body.sidebar-collapsed .nav-link > .nav-text { display:none; }
- body.sidebar-collapsed .nav-icon { width:21px; height:21px; flex-basis:21px; }
+ body.sidebar-collapsed .side-download { width:100%; min-width:0; gap:0; padding:10px 0; }
+ body.sidebar-collapsed .nav-link { gap:0; padding-inline:17px; }
+ body.sidebar-collapsed .nav-link > .nav-text { max-width:0; opacity:0; transform:translateX(-8px); }
+ body.sidebar-collapsed .nav-icon { width:21px; height:21px; flex-basis:21px; transform:scale(1.06); }
  body.sidebar-collapsed .nav-link::after { display:none; }
  body.sidebar-collapsed .sidebar-foot { margin-top:auto; }
  .side-navigation { flex:1; justify-content:flex-start; gap:12px; }
@@ -388,19 +404,15 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 
 /* Reveal is set up by main.js. Elements stay visible if JS or observers are unavailable. */
 @media(prefers-reduced-motion:no-preference){
- /* One-time branded opening on each page load; decorative and never captures input. */
- body.portfolio-page::before { content:''; position:fixed; inset:0; z-index:1000; pointer-events:none; background:radial-gradient(circle at 76% 18%,rgba(95,167,255,.34),transparent 38%),linear-gradient(135deg,#112a4d 0%,#1a467f 60%,#2867b3 100%); animation:portfolio-opening-curtain .95s cubic-bezier(.76,0,.24,1) both; }
- body.portfolio-page::after { content:'DMD'; position:fixed; top:50%; left:50%; z-index:1001; pointer-events:none; color:#fff; font:800 clamp(28px,5vw,46px)/1 var(--font); letter-spacing:.16em; text-shadow:0 8px 28px rgba(6,22,49,.25); animation:portfolio-opening-mark .95s ease both; }
- @keyframes portfolio-opening-curtain { 0%,24% {transform:translateY(0);} 100% {transform:translateY(-105%);} }
- @keyframes portfolio-opening-mark { 0% {opacity:0;transform:translate(-50%,-35%);} 22%,55% {opacity:1;transform:translate(-50%,-50%);} 85%,100% {opacity:0;transform:translate(-50%,-95%);} }
+ /* A small content entrance replaces the full-screen opening cover. */
  .portfolio-page .side-brand, .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline, .portfolio-page .mobile-header { animation:portfolio-opening-detail .62s var(--ease) both; }
- .portfolio-page .side-brand, .portfolio-page .mobile-header { animation-delay:.48s; }
- .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline { animation-delay:.58s; }
+ .portfolio-page .side-brand, .portfolio-page .mobile-header { animation-delay:.06s; }
+ .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline { animation-delay:.12s; }
  @keyframes portfolio-opening-detail { from {opacity:0;transform:translateY(10px);} to {opacity:1;transform:none;} }
  .motion-ready .reveal {transform:translateY(25px);opacity:0;filter:blur(3px);transition:opacity .72s var(--ease),transform .72s var(--ease),filter .72s var(--ease);}
  .motion-ready .reveal.is-visible {transform:none;opacity:1;filter:blur(0);}
- .hero-left.reveal.is-visible {transition-delay:250ms;}
- .hero-right.reveal.is-visible {transition-delay:380ms;}
+ .hero-left.reveal.is-visible {transition-delay:50ms;}
+ .hero-right.reveal.is-visible {transition-delay:160ms;}
  .page-bottomline a span {animation:downhint 2.7s ease-in-out infinite;}
  @keyframes downhint {50%{transform:translateY(4px)}}
 }
@@ -479,7 +491,6 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 /* Print remains factual, accessible and clean — remove visual-only decoration. */
 @media print {
  :root {--paper:#fff;--page-pad:0;}
- body.portfolio-page::before, body.portfolio-page::after {display:none !important;}
  .portfolio-page .side-brand, .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline, .portfolio-page .mobile-header {animation:none !important;}
  body,.folio-section,.section-hero,#skills,#projects,#contact {background:#fff !important;}
  .reading-progress,.hero-glow,.hero-code,.hero-floating-badge,.photo-corner,.focus-journey,.learning-card,.evidence-ribbon,.contact-banner,.project-window-top,.sidebar-orbit,.sidebar-foot-label {display:none !important;}
@@ -501,6 +512,7 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
  .hero-left h1 .mobile-headline{display:none !important;}
 }
 @media(prefers-reduced-motion:reduce){
+ .sidebar,.site-main,.side-brand-link,.side-nav-label,.nav-link,.nav-link > .nav-text,.nav-icon,.sidebar-quote,.sidebar-quote-icon,.sidebar-quote-text,.side-download,.download-label,.sidebar-foot small {transition:none !important;}
  .code-cursor,.badge-orbit,.page-bottomline a span {animation:none !important;}
  .info-card,.fact-card,.certificate-card,.secondary-project,.experience-card,.project-card,.skill-tile {transform:none !important;}
  .skill-tile,.skill-icon svg {transition:none !important;}
