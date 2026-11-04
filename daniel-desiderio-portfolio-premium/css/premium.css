@@ -32,6 +32,7 @@ body { background: var(--paper); }
 .side-person::before { content:''; position:absolute; inset:0 0 auto; height:62px; background:radial-gradient(circle at 15% 30%,rgba(54,128,229,.18),transparent 54%),repeating-linear-gradient(90deg,transparent 0 19px,rgba(44,98,181,.045) 20px 21px); }
 .sidebar-orbit { position:absolute; height:148px; width:148px; border:1px solid rgba(33,99,207,.11); border-radius:50%; top:-52px; left:-48px; pointer-events:none; }
 .side-person > img { z-index:1; width:86px; height:99px; border-radius:15px; border:3px solid white; box-shadow:0 10px 20px rgba(30,57,100,.13); margin:0 0 10px; }
+.side-avatar { z-index:1; display:grid; place-items:center; width:86px; height:86px; margin:2px 0 10px; border:3px solid #fff; border-radius:24px; background:linear-gradient(145deg,#173760,#347bd0); color:white; box-shadow:0 10px 22px rgba(30,57,100,.2); font-size:21px; font-weight:900; letter-spacing:-.06em; }
 .side-person strong, .side-person span { position:relative; z-index:1; }
 .side-person strong { font-size:11px; }
 .status-pill { border-color:#c7dcd7; background:#eaf8f1; color:#246650; padding:5px 11px; }
@@ -107,6 +108,11 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 @keyframes cursor-blink {50%{opacity:0}}
 .hero-right { position:relative; isolation:isolate; gap:12px; }
 .hero-image-wrap { position:relative; display:block; width:100%; padding:0; color:inherit; cursor:pointer; border:6px solid #fff; box-shadow:0 24px 54px rgba(20,52,104,.19),0 0 0 1px rgba(48,94,167,.15); border-radius:28px; overflow:hidden; background:#e7effb; }
+.hero-image-wrap { transition:transform .35s ease,box-shadow .35s ease; }
+.hero-image-wrap:hover { transform:translateY(-5px) rotate(-.35deg); box-shadow:0 30px 62px rgba(20,52,104,.24),0 0 0 1px rgba(48,94,167,.2); }
+.hero-image-wrap img { transition:opacity .16s ease,transform .45s ease; }
+.hero-image-wrap:hover img { transform:scale(1.025); }
+.hero-image-wrap img.is-changing { opacity:.28; }
 .hero-image-wrap:focus-visible,.profile-slideshow-controls button:focus-visible { outline:3px solid #2467c5; outline-offset:4px; }
 .hero-image-wrap::before { content:''; z-index:2; position:absolute; inset:0; background:linear-gradient(155deg,rgba(56,121,205,.08),transparent 48%); pointer-events:none; }
 .profile-slideshow-controls { display:flex; align-items:center; justify-content:space-between; gap:12px; color:#566a86; font-size:10px; }

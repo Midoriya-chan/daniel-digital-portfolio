@@ -22,11 +22,10 @@
   ];
   const profileNext = document.getElementById('hero-photo-next');
   const profileImage = document.getElementById('hero-profile-image');
-  const sidebarProfileImage = document.getElementById('sidebar-profile-image');
   const profilePosition = document.getElementById('profile-slide-position');
   const profileToggle = document.getElementById('profile-slideshow-toggle');
   const reducedMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (profileNext && profileImage && sidebarProfileImage && profilePosition && profileToggle) {
+  if (profileNext && profileImage && profilePosition && profileToggle) {
     let currentProfileSlide = 0;
     let manuallyPaused = reducedMotionPreference.matches;
     if (manuallyPaused) {
@@ -36,10 +35,12 @@
     }
     const syncProfileSlide = () => {
       const photo = profileSlides[currentProfileSlide];
-      profileImage.src = photo.src;
       profileImage.alt = photo.alt;
-      sidebarProfileImage.src = photo.src;
-      sidebarProfileImage.alt = photo.alt;
+      profileImage.classList.add('is-changing');
+      window.setTimeout(() => {
+        profileImage.src = photo.src;
+        requestAnimationFrame(() => profileImage.classList.remove('is-changing'));
+      }, 160);
       profilePosition.textContent = `Photo ${currentProfileSlide + 1} of ${profileSlides.length}`;
       profileNext.setAttribute('aria-label', `Show next profile photo. Current photo ${currentProfileSlide + 1} of ${profileSlides.length}.`);
     };
