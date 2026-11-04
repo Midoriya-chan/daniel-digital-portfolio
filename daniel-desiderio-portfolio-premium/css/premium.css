@@ -199,6 +199,18 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .secondary-project {padding:25px;border-radius:17px;gap:20px;}
 .secondary-project h3 {font-size:19px;letter-spacing:-.035em;}
 .secondary-project img {border-radius:12px;background:#eaf2fe;}
+.project-card {border-color:#d7e3f1;border-radius:18px;box-shadow:0 16px 38px rgba(23,64,116,.075);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);}
+.project-card:hover {transform:translateY(-5px);border-color:#aac6ed;box-shadow:0 22px 48px rgba(23,64,116,.14);}
+.project-card-image {background:linear-gradient(145deg,#edf4ff,#f7f9ff);}
+.project-card-image img {transition:transform .55s var(--ease);}
+.project-card:hover .project-card-image img {transform:scale(1.035);}
+.project-card-content {padding:clamp(18px,2vw,25px);}
+.project-card-meta .project-index {color:#326ab4;font-size:9px;letter-spacing:.14em;}
+.project-team {border-color:#d7e4f4;background:#f4f8ff;color:#3d5d85;}
+.project-card h3 {color:#1b3152;}
+.project-card p {color:#526680;}
+.project-highlights span {border-color:#dce7f5;background:#f5f8fd;color:#29476c;}
+.project-card .tag {border-color:#cbd9eb;background:#fff;color:#34516f;}
 
 /* ACHIEVEMENTS: the certificate strip feels like a gallery. */
 .evidence-ribbon {background:#132e55;color:#fff;position:relative;overflow:hidden;display:flex;align-items:center;gap:20px;padding:20px 25px;border-radius:16px;margin-bottom:22px;}
@@ -348,8 +360,10 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
  .section-heading h2{font-size:28px;}
  .hero-content{grid-template-columns:1.4fr .8fr;}
  .hero-image-wrap{max-height:85mm;border:1px solid #ddd;box-shadow:none;}
- .experience-card,.info-card,.certificate-card,.sap-module,.featured-project,.secondary-project {box-shadow:none !important;border:1px solid #d1d6dc;}
+ .experience-card,.info-card,.certificate-card,.sap-module,.featured-project,.secondary-project,.project-card {box-shadow:none !important;border:1px solid #d1d6dc;}
  .project-visual img{max-height:80mm;object-fit:contain;}
+ .project-card {break-inside:avoid;}
+ .project-card-image img {max-height:55mm;object-fit:contain;}
  .certificate-track{overflow:visible;}
  .expand-panel{box-shadow:none;}
  .reveal,.motion-ready .reveal {transform:none !important;opacity:1 !important;filter:none !important;}
@@ -358,5 +372,7 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 }
 @media(prefers-reduced-motion:reduce){
  .code-cursor,.badge-orbit,.page-bottomline a span {animation:none !important;}
- .info-card,.fact-card,.sap-module,.certificate-card,.secondary-project,.experience-card {transform:none !important;}
+ .info-card,.fact-card,.sap-module,.certificate-card,.secondary-project,.experience-card,.project-card {transform:none !important;}
+ .project-card,.project-card-image img {transition:none !important;}
+ .project-card:hover .project-card-image img {transform:none !important;}
 }
