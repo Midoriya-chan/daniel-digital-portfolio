@@ -232,7 +232,7 @@
     if (projectTrigger?.isConnected) projectTrigger.focus();
   });
 
-  // Submit to Netlify Forms and show the result here instead of redirecting to a missing page.
+  // Submit to Netlify Forms; open the confirmation page only after Netlify accepts the message.
   const contactForm = document.querySelector('form[name="portfolio-contact"]');
   const contactSubmit = document.getElementById('contact-submit');
   const contactStatus = document.getElementById('contact-form-status');
@@ -252,9 +252,7 @@
           body: new URLSearchParams(new FormData(contactForm)).toString()
         });
         if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
-        contactStatus.classList.add('is-success');
-        contactStatus.textContent = 'Your message was submitted. Thank you for reaching out.';
-        contactForm.reset();
+        window.location.assign(contactForm.action);
       } catch (error) {
         contactStatus.classList.add('is-error');
         contactStatus.textContent = 'The message could not be sent. Please try again or email me directly using the link below.';

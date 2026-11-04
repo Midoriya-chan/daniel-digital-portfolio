@@ -43,12 +43,13 @@ body { background: var(--paper); }
 .status-dot { background:#239b69; box-shadow:0 0 0 3px rgba(47,165,106,.12); }
 .side-navigation { gap:4px; padding-top:21px; }
 .side-nav-label { font-size:9px; letter-spacing:.16em; margin:0 0 11px 9px; color:#77859a; }
-.nav-link { position:relative; min-height:42px; border-left:0; border-radius:10px; padding:9px 12px; gap:14px; font-size:12px; transition: background .25s ease, transform .25s ease, color .25s ease, box-shadow .25s ease; }
+.nav-link { position:relative; min-height:42px; border-left:0; border-radius:10px; padding:9px 12px; gap:9px; font-size:12px; transition: background .25s ease, transform .25s ease, color .25s ease, box-shadow .25s ease; }
 .nav-link::after { content:'↗'; color:#2c67b5; margin-left:auto; opacity:0; transform:translate(-3px,3px); transition:opacity .25s,transform .25s; }
 .nav-link:hover { background:#ecf3ff; transform:translateX(3px); }
 .nav-link:hover::after, .nav-link.is-active::after { opacity:1; transform:translate(0); }
 .nav-link.is-active { background:linear-gradient(100deg,#e9f1ff,#f4f8ff); box-shadow:inset 3px 0 #2264c9; color:#173c77; }
-.nav-link > span { font-size:10px; }
+.nav-link > .nav-number { font-size:10px; }
+.nav-link:hover > .nav-icon, .nav-link.is-active > .nav-icon { color:#2264c9; }
 .sidebar-foot { padding-top:20px; gap:9px; }
 .sidebar-quote { margin:auto 4px 8px; padding:12px 10px; border-left:2px solid #8bb5eb; color:#556b8b; font-size:10px; line-height:1.6; font-style:italic; }
 .sidebar-quote-icon { display:grid; place-items:center; width:28px; height:28px; margin:0 auto 4px; border-radius:8px; background:#e9efff; color:#305ad2; }
@@ -67,8 +68,9 @@ body { background: var(--paper); }
  body.sidebar-collapsed .sidebar-quote { display:grid; place-items:center; padding:8px 0; margin:0; border-left:0; }
  body.sidebar-collapsed .sidebar-quote-icon { width:34px; height:34px; margin:0; }
  body.sidebar-collapsed .side-download { width:100%; min-width:0; padding:10px 0; }
- body.sidebar-collapsed .nav-link { justify-content:center; gap:0; padding-inline:4px; font-size:0; }
- body.sidebar-collapsed .nav-link > span { font-size:10px; }
+ body.sidebar-collapsed .nav-link { justify-content:center; gap:0; padding-inline:4px; }
+ body.sidebar-collapsed .nav-link > .nav-number, body.sidebar-collapsed .nav-link > .nav-text { display:none; }
+ body.sidebar-collapsed .nav-icon { width:21px; height:21px; flex-basis:21px; }
  body.sidebar-collapsed .nav-link::after { display:none; }
  body.sidebar-collapsed .sidebar-foot { margin-top:auto; }
  .side-navigation { flex:1; justify-content:flex-start; gap:12px; }
