@@ -129,13 +129,17 @@ h1 em { font-style: normal; color: var(--navy); }
 .image-slot small { font-size: 10px; max-width: 200px; margin-top: 8px; }
 
 /* 04 / SKILLS */
-.sap-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-bottom: 24px; }
-.sap-module { padding: 15px 11px; border: 1.5px solid var(--navy); background: white; border-radius: 10px; min-height: 98px; }
-.sap-module strong { display: block; font-size: 23px; color: var(--navy); line-height: 1.25; margin-bottom: 8px; }
-.sap-module span { font-size: 10px; line-height: 1.45; color: #465267; }
-.skill-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.skill-box { min-height: 178px; padding: 22px; }
-.skill-box h3 { margin-bottom: 19px; }
+.skill-panels { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.skill-panel { min-width:0; padding:22px; border:1px solid var(--line-strong); border-radius:var(--radius); background:#fff; box-shadow:var(--shadow); }
+.skill-panel-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+.skill-panel-kicker { display:block; margin-bottom:4px; color:var(--subtle); font-size:9px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+.skill-panel-heading h3 { margin:0; }
+.skill-panel-mark { color:var(--line-strong); font-size:25px; line-height:1; font-weight:900; }
+.skill-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
+.skill-tile { display:flex; min-width:0; min-height:100px; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:10px 6px; border:1px solid var(--line); border-radius:12px; background:#fff; text-align:center; }
+.skill-icon { display:flex; width:42px; height:42px; flex:none; align-items:center; justify-content:center; border-radius:12px; }
+.skill-icon svg { display:block; width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.skill-label { max-width:100%; color:var(--ink); font-size:10px; line-height:1.3; font-weight:700; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { display:inline-flex; align-items:center; min-height: 27px; border: 1px solid #bfc6d0; border-radius: 99px; padding: 4px 10px; background: #fff; font-size: 11px; line-height: 1.3; font-weight: 600; color: #2c374a; }
 .help-text { font-size: 10px !important; color: var(--muted) !important; margin-top: 13px; line-height: 1.6 !important; }
@@ -328,8 +332,8 @@ h1 em { font-style: normal; color: var(--navy); }
   .about-lower { grid-template-columns:1fr; }
   .about-narrative { font-size:12px; }
   .education-aside { max-width:490px; }
-  .sap-grid { grid-template-columns:repeat(3, minmax(0,1fr)); }
-  .skill-columns { grid-template-columns:1fr; }
+  .skill-panels { grid-template-columns:1fr; gap:13px; }
+  .skill-panel { padding:18px; }
   .project-grid { grid-template-columns:1fr; gap:14px; }
   .project-card-content { padding:18px; }
   .featured-project { grid-template-columns:1fr; }
@@ -354,10 +358,10 @@ h1 em { font-style: normal; color: var(--navy); }
   .section-heading { margin-bottom:20px; }
   h2 { font-size:34px; }
   h1 { font-size:clamp(36px, 10vw,42px); }
-  .sap-grid { gap:7px; }
-  .sap-module { padding:11px 8px; min-height:90px; }
-  .sap-module strong { font-size:21px; }
-  .sap-module span { font-size:9px; }
+  .skill-panels { grid-template-columns:1fr; gap:13px; }
+  .skill-panel { padding:17px; }
+  .skill-grid { gap:7px; }
+  .skill-tile { min-height:91px; }
   .certificate-track { grid-auto-columns:78%; }
   .heading-with-note { display:block; }
   .interaction-hint { max-width:none; display:inline-block; margin-top:7px; }
@@ -397,7 +401,7 @@ h1 em { font-style: normal; color: var(--navy); }
   .achievement-grid { margin-top:12px; }
   .expand-panel { break-inside:avoid; }
   .expand-panel:not([open]) > :not(summary) { display:block; }
-  .info-card,.education-item,.sap-module,.experience-card,.secondary-project { break-inside:avoid; }
+  .info-card,.education-item,.experience-card,.secondary-project,.skill-panel,.skill-tile { break-inside:avoid; }
   .site-main a { text-decoration:none; }
   .contact-left { max-width:150mm; }
 }
