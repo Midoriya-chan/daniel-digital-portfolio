@@ -76,14 +76,14 @@ body { background: var(--paper); }
 }
 
 /* Decorative chapter numbers, fine grids and varied section atmospheres. */
-.folio-section { position:relative; isolation:isolate; overflow:hidden; border-bottom:1px solid #e4ebf5; background:var(--paper); }
-.folio-section::before { content:''; pointer-events:none; position:absolute; inset:0; z-index:-1; opacity:.48; background-image:radial-gradient(circle,#b9cbe5 .75px,transparent .85px); background-size:26px 26px; mask-image:linear-gradient(140deg,transparent 0%,transparent 48%,#000 100%); }
+.folio-section { position:relative; isolation:isolate; overflow:hidden; border-bottom:1px solid #e4ebf5; background:radial-gradient(ellipse at 88% 12%,rgba(91,151,230,.1),transparent 36%),radial-gradient(ellipse at 8% 88%,rgba(166,200,247,.08),transparent 42%),#f7faff; }
+.folio-section::before { content:''; pointer-events:none; position:absolute; inset:0; z-index:-1; opacity:.35; background-image:radial-gradient(circle,#9cbde9 .8px,transparent 1px),linear-gradient(90deg,rgba(87,137,205,.1) 1px,transparent 1px),linear-gradient(rgba(87,137,205,.1) 1px,transparent 1px); background-size:26px 26px,104px 104px,104px 104px; mask-image:linear-gradient(115deg,transparent 24%,#000 100%); }
 .folio-section::after { content:attr(data-chapter); position:absolute; z-index:-1; pointer-events:none; top:85px; right:clamp(12px,3vw,48px); font-size:clamp(150px,20vw,360px); letter-spacing:-.13em; font-weight:900; line-height:1; color:rgba(34,87,157,.034); }
-.folio-section:nth-of-type(2n) { background:#fff; }
-.folio-section#skills { background:linear-gradient(145deg,#f0f5ff 0%,#f9fbff 58%,#f1f6ff 100%); }
-.folio-section#projects { background:linear-gradient(145deg,#fbfcff,#f3f7fe); }
-.folio-section#achievements { background:#fff; }
-.folio-section#contact { background:linear-gradient(165deg,#f5f8ff,#eef4fe); }
+.folio-section:nth-of-type(2n) { background:radial-gradient(ellipse at 90% 15%,rgba(95,158,235,.075),transparent 37%),linear-gradient(160deg,#fff 35%,#f9fbff 100%); }
+.folio-section#skills { background:radial-gradient(ellipse at 87% 9%,rgba(93,151,231,.13),transparent 38%),linear-gradient(145deg,#f0f5ff 0%,#fafcff 58%,#f2f7ff 100%); }
+.folio-section#projects { background:radial-gradient(ellipse at 13% 85%,rgba(136,181,241,.11),transparent 37%),linear-gradient(145deg,#fbfcff,#f2f7ff); }
+.folio-section#achievements { background:radial-gradient(ellipse at 88% 18%,rgba(129,177,237,.09),transparent 37%),#fff; }
+.folio-section#contact { background:radial-gradient(ellipse at 88% 12%,rgba(91,150,229,.14),transparent 40%),linear-gradient(165deg,#f7faff,#edf4ff); }
 .page-topline { max-width:1220px; width:100%; margin:0 auto; font-size:9px; letter-spacing:.17em; color:#687a96; min-height:82px; border-bottom:1px solid rgba(180,195,218,.38); }
 .page-topline span:first-child::before { content:''; display:inline-block; vertical-align:middle; height:6px; width:6px; background:#2d71c9; margin-right:10px; border-radius:50%; }
 .section-content { max-width:1220px; padding:60px 0 70px; }
@@ -108,7 +108,7 @@ body { background: var(--paper); }
 .info-card:hover,.fact-card:hover,.secondary-project:hover,.experience-card:hover { transform:translateY(-4px); border-color:#a9c6ed; box-shadow:0 18px 43px rgba(29,67,125,.11); }
 
 /* COVER: visual narrative is about technology without pretending to be a project screenshot. */
-.section-hero { background:radial-gradient(ellipse at 80% 28%,rgba(108,167,245,.14),transparent 37%),radial-gradient(circle at 10% 76%,rgba(159,193,255,.13),transparent 36%),#f6f9ff; }
+.section-hero { background:radial-gradient(ellipse at 82% 22%,rgba(92,153,235,.21),transparent 40%),radial-gradient(ellipse at 11% 82%,rgba(157,194,248,.13),transparent 41%),linear-gradient(125deg,#fbfcff 0%,#f4f8ff 50%,#eef5ff 100%); }
 .section-hero::before { opacity:.78; mask-image:linear-gradient(90deg,transparent 12%,#000 100%); }
 .section-hero::after { color:rgba(41,101,173,.03); }
 .hero-content { position:relative; grid-template-columns:minmax(0,1.38fr) minmax(275px,.95fr); gap:clamp(28px,4.5vw,75px); }
@@ -388,10 +388,19 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 
 /* Reveal is set up by main.js. Elements stay visible if JS or observers are unavailable. */
 @media(prefers-reduced-motion:no-preference){
+ /* One-time branded opening on each page load; decorative and never captures input. */
+ body.portfolio-page::before { content:''; position:fixed; inset:0; z-index:1000; pointer-events:none; background:radial-gradient(circle at 76% 18%,rgba(95,167,255,.34),transparent 38%),linear-gradient(135deg,#112a4d 0%,#1a467f 60%,#2867b3 100%); animation:portfolio-opening-curtain .95s cubic-bezier(.76,0,.24,1) both; }
+ body.portfolio-page::after { content:'DMD'; position:fixed; top:50%; left:50%; z-index:1001; pointer-events:none; color:#fff; font:800 clamp(28px,5vw,46px)/1 var(--font); letter-spacing:.16em; text-shadow:0 8px 28px rgba(6,22,49,.25); animation:portfolio-opening-mark .95s ease both; }
+ @keyframes portfolio-opening-curtain { 0%,24% {transform:translateY(0);} 100% {transform:translateY(-105%);} }
+ @keyframes portfolio-opening-mark { 0% {opacity:0;transform:translate(-50%,-35%);} 22%,55% {opacity:1;transform:translate(-50%,-50%);} 85%,100% {opacity:0;transform:translate(-50%,-95%);} }
+ .portfolio-page .side-brand, .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline, .portfolio-page .mobile-header { animation:portfolio-opening-detail .62s var(--ease) both; }
+ .portfolio-page .side-brand, .portfolio-page .mobile-header { animation-delay:.48s; }
+ .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline { animation-delay:.58s; }
+ @keyframes portfolio-opening-detail { from {opacity:0;transform:translateY(10px);} to {opacity:1;transform:none;} }
  .motion-ready .reveal {transform:translateY(25px);opacity:0;filter:blur(3px);transition:opacity .72s var(--ease),transform .72s var(--ease),filter .72s var(--ease);}
  .motion-ready .reveal.is-visible {transform:none;opacity:1;filter:blur(0);}
- .hero-left.reveal.is-visible {transition-delay:50ms;}
- .hero-right.reveal.is-visible {transition-delay:160ms;}
+ .hero-left.reveal.is-visible {transition-delay:250ms;}
+ .hero-right.reveal.is-visible {transition-delay:380ms;}
  .page-bottomline a span {animation:downhint 2.7s ease-in-out infinite;}
  @keyframes downhint {50%{transform:translateY(4px)}}
 }
@@ -470,6 +479,8 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 /* Print remains factual, accessible and clean — remove visual-only decoration. */
 @media print {
  :root {--paper:#fff;--page-pad:0;}
+ body.portfolio-page::before, body.portfolio-page::after {display:none !important;}
+ .portfolio-page .side-brand, .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline, .portfolio-page .mobile-header {animation:none !important;}
  body,.folio-section,.section-hero,#skills,#projects,#contact {background:#fff !important;}
  .reading-progress,.hero-glow,.hero-code,.hero-floating-badge,.photo-corner,.focus-journey,.learning-card,.evidence-ribbon,.contact-banner,.project-window-top,.sidebar-orbit,.sidebar-foot-label {display:none !important;}
  .folio-section::after,.folio-section::before,.learning-card::before {display:none !important;}
