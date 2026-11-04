@@ -22,12 +22,11 @@
   ];
   const profileNext = document.getElementById('hero-photo-next');
   const profileImage = document.getElementById('hero-profile-image');
-  const sidebarProfileImage = document.getElementById('sidebar-profile-image');
   const profileStack = [...document.querySelectorAll('.photo-card')];
   const profilePosition = document.getElementById('profile-slide-position');
   const profileToggle = document.getElementById('profile-slideshow-toggle');
   const reducedMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (profileNext && profileImage && profileStack.length === 3 && sidebarProfileImage && profilePosition && profileToggle) {
+  if (profileNext && profileImage && profileStack.length === 3 && profilePosition && profileToggle) {
     let currentProfileSlide = 0;
     let manuallyPaused = reducedMotionPreference.matches;
     if (manuallyPaused) {
