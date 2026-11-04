@@ -106,8 +106,12 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .code-cursor { display:inline-block; width:6px; height:13px; margin-left:8px; vertical-align:middle; background:#74b4ed; animation:cursor-blink 1.1s steps(1) infinite; }
 @keyframes cursor-blink {50%{opacity:0}}
 .hero-right { position:relative; isolation:isolate; gap:12px; }
-.hero-image-wrap { position:relative; border:6px solid #fff; box-shadow:0 24px 54px rgba(20,52,104,.19),0 0 0 1px rgba(48,94,167,.15); border-radius:28px; overflow:hidden; background:#e7effb; }
+.hero-image-wrap { position:relative; display:block; width:100%; padding:0; color:inherit; cursor:pointer; border:6px solid #fff; box-shadow:0 24px 54px rgba(20,52,104,.19),0 0 0 1px rgba(48,94,167,.15); border-radius:28px; overflow:hidden; background:#e7effb; }
+.hero-image-wrap:focus-visible,.profile-slideshow-controls button:focus-visible { outline:3px solid #2467c5; outline-offset:4px; }
 .hero-image-wrap::before { content:''; z-index:2; position:absolute; inset:0; background:linear-gradient(155deg,rgba(56,121,205,.08),transparent 48%); pointer-events:none; }
+.profile-slideshow-controls { display:flex; align-items:center; justify-content:space-between; gap:12px; color:#566a86; font-size:10px; }
+.profile-slideshow-controls button { border:1px solid #cbd9ec; border-radius:999px; padding:6px 12px; color:#183b68; background:#fff; font:inherit; font-weight:700; cursor:pointer; }
+.profile-slideshow-controls button:hover { background:#edf4ff; }
 .photo-corner { position:absolute; z-index:3; pointer-events:none; width:32px;height:32px;border-color:#2d71c9; }
 .photo-corner-a { left:12px; top:12px; border-left:2px solid;border-top:2px solid; }
 .photo-corner-b { right:12px; bottom:12px; border-right:2px solid;border-bottom:2px solid; }

@@ -11,6 +11,61 @@
   const mobile = window.matchMedia('(max-width: 900px)');
   let opener = null;
 
+  // Profile carousel: manual image clicks advance immediately; autoplay pauses for
+  // reduced-motion preferences, hidden tabs, hover, and keyboard focus.
+  const profileSlides = [
+    {src:'assets/images/project-photo.jpg', alt:'Daniel Matthew R. Desiderio wearing a white blazer'},
+    {src:'assets/images/profile-slides/portrait-arch.png', alt:'Daniel standing beside a stone arch in a black shirt'},
+    {src:'assets/images/profile-slides/portrait-coast.png', alt:'Daniel looking toward the coast from a viewpoint'},
+    {src:'assets/images/profile-slides/portrait-childhood-table.png', alt:'Daniel as a child sitting at a table'},
+    {src:'assets/images/profile-slides/portrait-childhood-outdoors.png', alt:'Daniel as a child outdoors wearing a blue hat and orange shirt'}
+  ];
+  const profileNext = document.getElementById('hero-photo-next');
+  const profileImage = document.getElementById('hero-profile-image');
+  const sidebarProfileImage = document.getElementById('sidebar-profile-image');
+  const profilePosition = document.getElementById('profile-slide-position');
+  const profileToggle = document.getElementById('profile-slideshow-toggle');
+  const reducedMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (profileNext && profileImage && sidebarProfileImage && profilePosition && profileToggle) {
+    let currentProfileSlide = 0;
+    let manuallyPaused = reducedMotionPreference.matches;
+    if (manuallyPaused) {
+      profileToggle.textContent = 'Play';
+      profileToggle.setAttribute('aria-label', 'Play profile photo slideshow');
+      profileToggle.setAttribute('aria-pressed', 'true');
+    }
+    const syncProfileSlide = () => {
+      const photo = profileSlides[currentProfileSlide];
+      profileImage.src = photo.src;
+      profileImage.alt = photo.alt;
+      sidebarProfileImage.src = photo.src;
+      sidebarProfileImage.alt = photo.alt;
+      profilePosition.textContent = `Photo ${currentProfileSlide + 1} of ${profileSlides.length}`;
+      profileNext.setAttribute('aria-label', `Show next profile photo. Current photo ${currentProfileSlide + 1} of ${profileSlides.length}.`);
+    };
+    const advanceProfileSlide = () => {
+      currentProfileSlide = (currentProfileSlide + 1) % profileSlides.length;
+      syncProfileSlide();
+    };
+    profileNext.addEventListener('click', advanceProfileSlide);
+    profileToggle.addEventListener('click', () => {
+      manuallyPaused = !manuallyPaused;
+      profileToggle.textContent = manuallyPaused ? 'Play' : 'Pause';
+      profileToggle.setAttribute('aria-label', manuallyPaused ? 'Play profile photo slideshow' : 'Pause profile photo slideshow');
+      profileToggle.setAttribute('aria-pressed', String(manuallyPaused));
+    });
+    const canAutoplay = () => !manuallyPaused && !document.hidden && !profileNext.matches(':hover') && !profileNext.matches(':focus-within') && !profileToggle.matches(':focus');
+    window.setInterval(() => { if (canAutoplay()) advanceProfileSlide(); }, 12000);
+    reducedMotionPreference.addEventListener?.('change', event => {
+      if (event.matches) {
+        manuallyPaused = true;
+        profileToggle.textContent = 'Play';
+        profileToggle.setAttribute('aria-label', 'Play profile photo slideshow');
+        profileToggle.setAttribute('aria-pressed', 'true');
+      }
+    });
+  }
+
   // Accessible mobile drawer: Esc, outside click, focus containment and focus return.
   function setMenuOpen(open, returnFocus = false) {
     sidebar.classList.toggle('is-open', open);

@@ -9,7 +9,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Daniel Matthew R. Desiderio | Digital Portfolio">
-  <meta property="og:description" content="BSIT student. SAP certified. Ready to intern. Projects, competencies, and experience.">
+  <meta property="og:description" content="BSIT student. Aspiring IT professional. Ready to intern. Projects, competencies, and experience.">
   <!-- TODO: Add an absolute HTTPS og:image after publishing, if you have a real preview image. -->
   <title>Daniel Matthew R. Desiderio | Digital Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -43,7 +43,7 @@
     </div>
     <div class="side-person">
       <span class="sidebar-orbit" aria-hidden="true"></span>
-      <img src="assets/images/project-photo.jpg" alt="Daniel Matthew R. Desiderio wearing a white blazer" width="720" height="880">
+      <img id="sidebar-profile-image" src="assets/images/project-photo.jpg" alt="Daniel Matthew R. Desiderio wearing a white blazer" width="720" height="880">
       <strong>Daniel Matthew R. Desiderio</strong>
       <span>BSIT Student</span>
       <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>Seeking IT internship</span>
@@ -75,7 +75,7 @@
         <div class="hero-left reveal">
           <p class="section-kicker">01 · Cover Page</p>
           <span class="intro-pill"><span class="intro-spark" aria-hidden="true"></span>Hello, I am Daniel</span>
-          <h1 id="hero-title"><span class="desktop-headline">BSIT Student.<br><em>SAP Certified.</em><br>Ready to Intern.</span><span class="mobile-headline">Daniel Matthew R. Desiderio</span></h1>
+          <h1 id="hero-title"><span class="desktop-headline">BSIT Student.<br><em>Aspiring IT Professional.</em><br>Ready to Intern.</span><span class="mobile-headline">Daniel Matthew R. Desiderio</span></h1>
           <p class="mobile-hero-subtitle">BSIT Student | Aspiring SAP Analytics Consultant Intern</p>
           <p class="hero-intro">I'm Daniel Matthew R. Desiderio, a BSIT student learning SQL, Python, and SAP S/4HANA. I'm seeking an IT internship where I can contribute, collaborate, and grow.</p>
           <div class="hero-code" aria-label="Areas of interest, presented as example code">
@@ -89,9 +89,13 @@
           </div>
         </div>
         <div class="hero-right reveal">
-          <div class="hero-image-wrap">
+          <button class="hero-image-wrap" id="hero-photo-next" type="button" aria-label="Show next profile photo">
             <span class="photo-corner photo-corner-a" aria-hidden="true"></span><span class="photo-corner photo-corner-b" aria-hidden="true"></span>
-            <img src="assets/images/project-photo.jpg" alt="Daniel Matthew R. Desiderio wearing a white blazer" width="720" height="880" fetchpriority="high">
+            <img id="hero-profile-image" src="assets/images/project-photo.jpg" alt="Daniel Matthew R. Desiderio wearing a white blazer" width="720" height="880" fetchpriority="high">
+          </button>
+          <div class="profile-slideshow-controls" aria-label="Profile photo slideshow controls">
+            <span id="profile-slide-position">Photo 1 of 5</span>
+            <button id="profile-slideshow-toggle" type="button" aria-label="Pause profile photo slideshow" aria-pressed="false">Pause</button>
           </div>
           <div class="hero-floating-badge" aria-hidden="true"><span class="badge-orbit"></span><span>TECH<br>+ PEOPLE</span></div>
           <div class="hero-info-panel"><span class="micro-label">Target role</span><strong>SAP Analytics Consultant Intern</strong></div>
