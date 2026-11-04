@@ -33,8 +33,8 @@ body { background: var(--paper); }
 .sidebar-orbit { position:absolute; height:148px; width:148px; border:1px solid rgba(33,99,207,.11); border-radius:50%; top:-52px; left:-48px; pointer-events:none; }
 .side-person > img { z-index:1; width:86px; height:99px; border-radius:15px; border:3px solid white; box-shadow:0 10px 20px rgba(30,57,100,.13); margin:0 0 10px; }
 .side-person { min-height:250px; justify-content:flex-end; padding:95px 8px 22px; }
-.side-person > img { position:absolute; inset:0 0 76px; z-index:0; width:100%; height:calc(100% - 76px); object-fit:cover; object-position:center 42%; border:0; border-radius:inherit; opacity:.8; margin:0; }
-.side-person::after { content:''; position:absolute; inset:48% 0 72px; background:none; z-index:0; pointer-events:none; }
+.side-person > img { position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover; object-position:center 42%; border:0; border-radius:inherit; opacity:.32; margin:0; }
+.side-person::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.48) 53%,rgba(255,255,255,.86) 100%); z-index:0; pointer-events:none; }
 .side-person strong, .side-person span { position:relative; z-index:1; }
 .side-person strong { font-size:11px; }
 .status-pill { border-color:#c7dcd7; background:#eaf8f1; color:#246650; padding:5px 11px; }
