@@ -317,6 +317,8 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .project-card-image {background:linear-gradient(145deg,#edf4ff,#f7f9ff);}
 .project-card-image img {transition:transform .55s var(--ease);}
 .project-card:hover .project-card-image img {transform:scale(1.035);}
+.project-card-image-signlearn img {object-fit:contain;}
+.project-card:hover .project-card-image-signlearn img {transform:none;}
 .project-card-content {padding:clamp(18px,2vw,25px);}
 .project-card-meta .project-index {color:#326ab4;font-size:9px;letter-spacing:.14em;}
 .project-team {border-color:#d7e4f4;background:#f4f8ff;color:#3d5d85;}
