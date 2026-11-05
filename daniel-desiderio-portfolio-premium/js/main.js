@@ -113,8 +113,9 @@
   const journeyNext = document.getElementById('journey-next');
   const journeyToggle = document.getElementById('journey-toggle');
   if (journey && journeyPhoto && journeyPosition && journeyDots && journeyPrev && journeyNext && journeyToggle) {
-    const photos = Array.from({ length: 29 }, (_, index) =>
-      `assets/images/college-journey/college-${String(index + 1).padStart(2, '0')}.jpg`);
+    const photoNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 17, 19, 20, 21, 22, 23, 25, 27, 28, 29];
+    const photos = photoNumbers.map(number =>
+      `assets/images/college-journey/college-${String(number).padStart(2, '0')}.jpg`);
     const reduceJourneyMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let journeyIndex = 0;
     let journeyTimer;
