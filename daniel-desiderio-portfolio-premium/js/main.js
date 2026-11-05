@@ -52,20 +52,27 @@
     let educationInView = false;
     const selectSchool = (button, automatic = false) => {
       educationDetail.setAttribute('aria-live', automatic ? 'off' : 'polite');
-      educationButtons.forEach(item => {
-        const selected = item === button;
-        item.setAttribute('aria-pressed', String(selected));
-        item.closest('.education-item').classList.toggle('is-selected', selected);
-      });
       const request = ++educationRequest;
       prepareImage(button.dataset.photo).then(() => {
         if (request !== educationRequest) return;
+        educationButtons.forEach(item => {
+          const selected = item === button;
+          item.setAttribute('aria-pressed', String(selected));
+          item.closest('.education-item').classList.toggle('is-selected', selected);
+        });
         const school = button.querySelector('.education-school').textContent;
         detailDate.textContent = button.querySelector('.timeline-date').textContent;
         detailDegree.textContent = button.querySelector('.education-degree').textContent;
         detailSchool.textContent = school;
         educationPhoto.src = button.dataset.photo;
         educationPhoto.alt = `Photo of ${school}`;
+        if (!reduceEducationMotion.matches && educationDetail.animate) {
+          educationDetail.getAnimations().forEach(animation => animation.cancel());
+          educationDetail.animate(
+            [{ opacity: 0.72, transform: 'translateY(5px)' }, { opacity: 1, transform: 'translateY(0)' }],
+            { duration: 240, easing: 'ease-out' }
+          );
+        }
         const next = educationButtons[(educationButtons.indexOf(button) + 1) % educationButtons.length];
         prepareImage(next.dataset.photo).catch(() => {});
       }).catch(() => {});
@@ -85,6 +92,7 @@
     if ('IntersectionObserver' in window) {
       const educationObserver = new IntersectionObserver(entries => {
         educationInView = entries[0].isIntersecting;
+        if (educationInView) educationButtons.forEach(button => prepareImage(button.dataset.photo).catch(() => {}));
         startEducationAutoplay();
       }, { threshold: 0.25 });
       educationObserver.observe(document.getElementById('education'));
@@ -137,10 +145,18 @@
         if (request !== journeyRequest) return;
         journeyPhoto.src = photos[journeyIndex];
         journeyPhoto.alt = `Group photo from Daniel's college journey, photo ${journeyIndex + 1} of ${photos.length}`;
+        if (!reduceJourneyMotion.matches && journeyPhoto.animate) {
+          journeyPhoto.getAnimations().forEach(animation => animation.cancel());
+          journeyPhoto.animate(
+            [{ opacity: 0.65, transform: 'scale(1.015)' }, { opacity: 1, transform: 'scale(1)' }],
+            { duration: 260, easing: 'ease-out' }
+          );
+        }
         journeyPosition.setAttribute('aria-live', automatic ? 'off' : 'polite');
         journeyPosition.textContent = `Photo ${journeyIndex + 1} of ${photos.length}`;
         dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === journeyIndex)));
         prepareImage(photos[(journeyIndex + 1) % photos.length]).catch(() => {});
+        prepareImage(photos[(journeyIndex - 1 + photos.length) % photos.length]).catch(() => {});
       }).catch(() => {});
     };
     const startJourneyAutoplay = () => {
@@ -172,7 +188,10 @@
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(entries => {
         journeyVisible = entries[0].isIntersecting;
-        if (journeyVisible) prepareImage(photos[(journeyIndex + 1) % photos.length]).catch(() => {});
+        if (journeyVisible) {
+          prepareImage(photos[(journeyIndex + 1) % photos.length]).catch(() => {});
+          prepareImage(photos[(journeyIndex - 1 + photos.length) % photos.length]).catch(() => {});
+        }
         startJourneyAutoplay();
       }, { threshold: 0.25 }).observe(journey);
     } else { journeyVisible = true; startJourneyAutoplay(); }
