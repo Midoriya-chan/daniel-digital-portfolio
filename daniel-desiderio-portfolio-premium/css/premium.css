@@ -378,6 +378,10 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .social-link:hover {transform:translateY(-2px);border-color:#9bbce8;box-shadow:0 7px 18px rgba(30,71,126,.1);}
 .social-link:focus-visible {outline:3px solid #2e72e4;outline-offset:2px;}
 .social-icon {display:grid;place-items:center;flex:0 0 33px;width:33px;height:33px;border-radius:9px;background:#eaf2ff;color:#2461ca;font-size:14px;font-weight:900;}
+.social-icon svg {width:18px;height:18px;display:block;}
+.social-icon-facebook {color:#1877f2;}
+.social-icon-instagram {color:#c13584;}
+.social-icon-tiktok,.social-icon-x {color:#172439;}
 .social-link > span:nth-child(2) {min-width:0;}
 .social-link strong,.social-link small {display:block;line-height:1.35;}
 .social-link strong {color:#20385e;font-size:11px;}

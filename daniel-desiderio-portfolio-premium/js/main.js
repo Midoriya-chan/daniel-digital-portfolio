@@ -31,8 +31,11 @@
     const educationPhoto = document.getElementById('education-photo');
     const reduceEducationMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let educationSwapTimer;
+    let educationAutoTimer;
+    let educationInView = false;
     educationButtons.forEach(button => { const photo = new Image(); photo.src = button.dataset.photo; });
-    educationButtons.forEach(button => button.addEventListener('click', () => {
+    const selectSchool = (button, automatic = false) => {
+      educationDetail.setAttribute('aria-live', automatic ? 'off' : 'polite');
       educationButtons.forEach(item => {
         const selected = item === button;
         item.setAttribute('aria-pressed', String(selected));
@@ -51,7 +54,31 @@
       };
       if (reduceEducationMotion.matches) showSchool();
       else educationSwapTimer = window.setTimeout(showSchool, 160);
+    };
+    const startEducationAutoplay = () => {
+      window.clearInterval(educationAutoTimer);
+      if (!educationInView || document.hidden || reduceEducationMotion.matches) return;
+      educationAutoTimer = window.setInterval(() => {
+        const current = educationButtons.findIndex(button => button.getAttribute('aria-pressed') === 'true');
+        selectSchool(educationButtons[(current + 1) % educationButtons.length], true);
+      }, 5000);
+    };
+    educationButtons.forEach(button => button.addEventListener('click', () => {
+      selectSchool(button);
+      startEducationAutoplay();
     }));
+    if ('IntersectionObserver' in window) {
+      const educationObserver = new IntersectionObserver(entries => {
+        educationInView = entries[0].isIntersecting;
+        startEducationAutoplay();
+      }, { threshold: 0.25 });
+      educationObserver.observe(document.getElementById('education'));
+    } else {
+      educationInView = true;
+      startEducationAutoplay();
+    }
+    document.addEventListener('visibilitychange', startEducationAutoplay);
+    reduceEducationMotion.addEventListener('change', startEducationAutoplay);
   }
 
   // Profile carousel: manual image clicks advance immediately; autoplay pauses for
