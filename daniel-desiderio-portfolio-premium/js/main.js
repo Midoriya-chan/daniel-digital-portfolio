@@ -11,6 +11,23 @@
   const mobile = window.matchMedia('(max-width: 900px)');
   const collapseSidebarButton = document.getElementById('sidebar-collapse-toggle');
   let opener = null;
+  const imageCache = new Map();
+  const prepareImage = src => {
+    if (!imageCache.has(src)) {
+      const image = new Image();
+      image.decoding = 'async';
+      image.src = src;
+      const ready = image.decode ? image.decode() : new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = reject;
+      });
+      imageCache.set(src, ready.then(() => image).catch(error => {
+        imageCache.delete(src);
+        throw error;
+      }));
+    }
+    return imageCache.get(src);
+  };
 
   if (collapseSidebarButton) {
     collapseSidebarButton.addEventListener('click', () => {
@@ -30,10 +47,9 @@
     const detailSchool = document.getElementById('education-detail-school');
     const educationPhoto = document.getElementById('education-photo');
     const reduceEducationMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let educationSwapTimer;
+    let educationRequest = 0;
     let educationAutoTimer;
     let educationInView = false;
-    educationButtons.forEach(button => { const photo = new Image(); photo.src = button.dataset.photo; });
     const selectSchool = (button, automatic = false) => {
       educationDetail.setAttribute('aria-live', automatic ? 'off' : 'polite');
       educationButtons.forEach(item => {
@@ -41,19 +57,18 @@
         item.setAttribute('aria-pressed', String(selected));
         item.closest('.education-item').classList.toggle('is-selected', selected);
       });
-      window.clearTimeout(educationSwapTimer);
-      educationDetail.classList.add('is-switching');
-      const showSchool = () => {
+      const request = ++educationRequest;
+      prepareImage(button.dataset.photo).then(() => {
+        if (request !== educationRequest) return;
         const school = button.querySelector('.education-school').textContent;
         detailDate.textContent = button.querySelector('.timeline-date').textContent;
         detailDegree.textContent = button.querySelector('.education-degree').textContent;
         detailSchool.textContent = school;
         educationPhoto.src = button.dataset.photo;
         educationPhoto.alt = `Photo of ${school}`;
-        educationDetail.classList.remove('is-switching');
-      };
-      if (reduceEducationMotion.matches) showSchool();
-      else educationSwapTimer = window.setTimeout(showSchool, 160);
+        const next = educationButtons[(educationButtons.indexOf(button) + 1) % educationButtons.length];
+        prepareImage(next.dataset.photo).catch(() => {});
+      }).catch(() => {});
     };
     const startEducationAutoplay = () => {
       window.clearInterval(educationAutoTimer);
@@ -95,7 +110,7 @@
     const reduceJourneyMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let journeyIndex = 0;
     let journeyTimer;
-    let journeySwapTimer;
+    let journeyRequest = 0;
     let journeyVisible = false;
     let journeyHovered = false;
     let journeyFocused = false;
@@ -116,21 +131,17 @@
       journeyToggle.setAttribute('aria-pressed', String(journeyPaused));
     };
     const showJourney = (index, automatic = false) => {
-      window.clearTimeout(journeySwapTimer);
       journeyIndex = (index + photos.length) % photos.length;
-      journeyPhoto.classList.add('is-switching');
-      const swap = () => {
+      const request = ++journeyRequest;
+      prepareImage(photos[journeyIndex]).then(() => {
+        if (request !== journeyRequest) return;
         journeyPhoto.src = photos[journeyIndex];
         journeyPhoto.alt = `Group photo from Daniel's college journey, photo ${journeyIndex + 1} of ${photos.length}`;
         journeyPosition.setAttribute('aria-live', automatic ? 'off' : 'polite');
         journeyPosition.textContent = `Photo ${journeyIndex + 1} of ${photos.length}`;
         dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === journeyIndex)));
-        journeyPhoto.classList.remove('is-switching');
-        const nextPhoto = new Image();
-        nextPhoto.src = photos[(journeyIndex + 1) % photos.length];
-      };
-      if (reduceJourneyMotion.matches) swap();
-      else journeySwapTimer = window.setTimeout(swap, 180);
+        prepareImage(photos[(journeyIndex + 1) % photos.length]).catch(() => {});
+      }).catch(() => {});
     };
     const startJourneyAutoplay = () => {
       window.clearInterval(journeyTimer);
@@ -161,6 +172,7 @@
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(entries => {
         journeyVisible = entries[0].isIntersecting;
+        if (journeyVisible) prepareImage(photos[(journeyIndex + 1) % photos.length]).catch(() => {});
         startJourneyAutoplay();
       }, { threshold: 0.25 }).observe(journey);
     } else { journeyVisible = true; startJourneyAutoplay(); }
@@ -172,8 +184,8 @@
   // reduced-motion preferences, hidden tabs, hover, and keyboard focus.
   const profileSlides = [
     {src:'assets/images/project-photo.jpg', alt:'Daniel Matthew R. Desiderio wearing a white blazer'},
-    {src:'assets/images/profile-slides/portrait-arch.png', alt:'Daniel standing beside a stone arch in a black shirt'},
-    {src:'assets/images/profile-slides/portrait-coast.png', alt:'Daniel looking toward the coast from a viewpoint'}
+    {src:'assets/images/profile-slides/portrait-arch.jpg', alt:'Daniel standing beside a stone arch in a black shirt'},
+    {src:'assets/images/profile-slides/portrait-coast.jpg', alt:'Daniel looking toward the coast from a viewpoint'}
   ];
   const profileNext = document.getElementById('hero-photo-next');
   const profileImage = document.getElementById('hero-profile-image');
@@ -182,6 +194,7 @@
   const profileToggle = document.getElementById('profile-slideshow-toggle');
   const reducedMotionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (profileNext && profileImage && profileStack.length === 3 && profilePosition && profileToggle) {
+    profileSlides.forEach(photo => prepareImage(photo.src).catch(() => {}));
     let currentProfileSlide = 0;
     let manuallyPaused = reducedMotionPreference.matches;
     if (manuallyPaused) {
@@ -197,9 +210,7 @@
       profileStack[0].querySelector('img').src = after.src;
       profileStack[1].querySelector('img').src = next.src;
       profileImage.src = photo.src;
-      profileNext.classList.remove('is-advancing');
-      void profileNext.offsetWidth;
-      profileNext.classList.add('is-advancing');
+      if (!reducedMotionPreference.matches) profileNext.classList.add('is-advancing');
       profilePosition.textContent = `Photo ${currentProfileSlide + 1} of ${profileSlides.length}`;
       profileNext.setAttribute('aria-label', `Show next profile photo. Current photo ${currentProfileSlide + 1} of ${profileSlides.length}.`);
     };
@@ -208,6 +219,7 @@
       syncProfileSlide();
     };
     profileNext.addEventListener('click', advanceProfileSlide);
+    profileNext.addEventListener('animationend', () => profileNext.classList.remove('is-advancing'));
     profileToggle.addEventListener('click', () => {
       manuallyPaused = !manuallyPaused;
       profileToggle.textContent = manuallyPaused ? 'Play' : 'Pause';
