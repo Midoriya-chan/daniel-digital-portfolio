@@ -169,6 +169,20 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .photo-corner { position:absolute; z-index:3; pointer-events:none; width:32px;height:32px;border-color:#2d71c9; }
 .photo-corner-a { left:12px; top:12px; border-left:2px solid;border-top:2px solid; }
 .photo-corner-b { right:12px; bottom:12px; border-right:2px solid;border-bottom:2px solid; }
+.tech-float-layer {position:absolute;inset:0;z-index:5;pointer-events:none;}
+.tech-float {position:absolute;display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(109,151,210,.42);border-radius:15px;background:rgba(255,255,255,.94);color:#2867bd;box-shadow:0 12px 28px rgba(21,61,114,.16);}
+.tech-float svg {display:block;width:25px;height:25px;}
+.tech-float-code {top:3%;left:-6%;color:#2c6bd0;}
+.tech-float-database {top:21%;right:-6%;color:#327bba;}
+.tech-float-terminal {bottom:24%;left:-7%;color:#28766b;}
+.tech-float-chip {right:-3%;bottom:4%;color:#3a64bb;}
+@media (prefers-reduced-motion:no-preference) {
+ .tech-float {animation:tech-float 5.4s ease-in-out infinite alternate;}
+ .tech-float-database {animation-delay:-1.5s;animation-duration:6.2s;}
+ .tech-float-terminal {animation-delay:-2.8s;animation-duration:5.8s;}
+ .tech-float-chip {animation-delay:-.8s;animation-duration:6.6s;}
+}
+@keyframes tech-float {to{transform:translateY(-8px) rotate(3deg);}}
 .hero-floating-badge { position:absolute; z-index:4; right:-13px; top:38%; transform:translateX(12%); height:89px;width:89px; background:#153b72;color:#fff; border:5px solid white; border-radius:50%; box-shadow:0 10px 28px rgba(24,67,118,.2); display:grid;place-items:center;text-align:center;font-size:9px;font-weight:900;letter-spacing:.07em;line-height:1.65; }
 .badge-orbit { position:absolute; inset:7px; border:1px dashed rgba(255,255,255,.42);border-radius:50%; animation:orbit 18s linear infinite; }
 @keyframes orbit {to{transform:rotate(360deg)}}
@@ -481,6 +495,11 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
  .contact-banner{padding:25px;}
 }
 @media(max-width:700px) {
+ .tech-float {width:39px;height:39px;border-radius:11px;}
+ .tech-float svg {width:20px;height:20px;}
+ .tech-float-code {top:4%;left:-8%;}
+ .tech-float-terminal {bottom:23%;left:-10%;}
+ .tech-float-database,.tech-float-chip {display:none;}
  .folio-section{min-height:auto;}
  .folio-section::after{right:14px;top:62px;font-size:120px;}
  .page-topline{min-height:51px;font-size:8px;letter-spacing:.11em;}
@@ -531,7 +550,7 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
  .journey-card {break-inside:avoid;box-shadow:none !important;}
  .journey-photo-wrap {height:70mm;}
  body,.folio-section,.section-hero,#skills,#projects,#contact {background:#fff !important;}
- .reading-progress,.hero-glow,.hero-code,.hero-floating-badge,.photo-corner,.focus-journey,.learning-card,.evidence-ribbon,.contact-banner,.project-window-top,.sidebar-orbit,.sidebar-foot-label {display:none !important;}
+ .reading-progress,.hero-glow,.hero-code,.hero-floating-badge,.tech-float-layer,.photo-corner,.focus-journey,.learning-card,.evidence-ribbon,.contact-banner,.project-window-top,.sidebar-orbit,.sidebar-foot-label {display:none !important;}
  .folio-section::after,.folio-section::before,.learning-card::before {display:none !important;}
  .folio-section {overflow:visible;}
  .page-topline{min-height:22px;}
