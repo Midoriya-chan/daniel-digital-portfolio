@@ -315,10 +315,7 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .project-live-link {justify-self:center;display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:18px auto 2px;padding:12px 20px;min-width:220px;font-size:12px;font-weight:800;letter-spacing:0;line-height:1.35;text-align:center;}
 .project-live-link[hidden] {display:none !important;}
 .project-card-image {background:linear-gradient(145deg,#edf4ff,#f7f9ff);}
-.project-card-image img {transition:transform .55s var(--ease);}
-.project-card:hover .project-card-image img {transform:scale(1.035);}
-.project-card-image-signlearn img {object-fit:contain;}
-.project-card:hover .project-card-image-signlearn img {transform:none;}
+.project-card-image img {object-fit:contain;}
 .project-card-content {padding:clamp(18px,2vw,25px);}
 .project-card-meta .project-index {color:#326ab4;font-size:9px;letter-spacing:.14em;}
 .project-team {border-color:#d7e4f4;background:#f4f8ff;color:#3d5d85;}
