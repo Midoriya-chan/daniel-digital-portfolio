@@ -111,8 +111,8 @@
       return dot;
     });
     const syncJourneyToggle = () => {
-      journeyToggle.textContent = journeyPaused ? 'Play' : 'Pause';
       journeyToggle.setAttribute('aria-label', journeyPaused ? 'Play college photo slideshow' : 'Pause college photo slideshow');
+      journeyToggle.title = journeyPaused ? 'Play slideshow' : 'Pause slideshow';
       journeyToggle.setAttribute('aria-pressed', String(journeyPaused));
     };
     const showJourney = (index, automatic = false) => {
@@ -123,7 +123,7 @@
         journeyPhoto.src = photos[journeyIndex];
         journeyPhoto.alt = `Group photo from Daniel's college journey, photo ${journeyIndex + 1} of ${photos.length}`;
         journeyPosition.setAttribute('aria-live', automatic ? 'off' : 'polite');
-        journeyPosition.textContent = `${String(journeyIndex + 1).padStart(2, '0')} / ${photos.length}`;
+        journeyPosition.textContent = `Photo ${journeyIndex + 1} of ${photos.length}`;
         dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === journeyIndex)));
         journeyPhoto.classList.remove('is-switching');
         const nextPhoto = new Image();
