@@ -83,7 +83,7 @@
       educationAutoTimer = window.setInterval(() => {
         const current = educationButtons.findIndex(button => button.getAttribute('aria-pressed') === 'true');
         selectSchool(educationButtons[(current + 1) % educationButtons.length], true);
-      }, 5000);
+      }, 3000);
     };
     educationButtons.forEach(button => button.addEventListener('click', () => {
       selectSchool(button);
@@ -113,7 +113,7 @@
   const journeyNext = document.getElementById('journey-next');
   const journeyToggle = document.getElementById('journey-toggle');
   if (journey && journeyPhoto && journeyPosition && journeyDots && journeyPrev && journeyNext && journeyToggle) {
-    const photoNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 17, 19, 20, 21, 22, 23, 25, 27, 28, 29];
+    const photoNumbers = [27, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 17, 19, 20, 21, 22, 23, 25, 28, 29];
     const photos = photoNumbers.map(number =>
       `assets/images/college-journey/college-${String(number).padStart(2, '0')}.jpg`);
     const reduceJourneyMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -176,7 +176,7 @@
     const startJourneyAutoplay = () => {
       window.clearInterval(journeyTimer);
       if (journeyPaused || reduceJourneyMotion.matches || document.hidden || !journeyVisible || ((journeyHovered || journeyFocused) && !journeyForcePlay)) return;
-      journeyTimer = window.setInterval(() => showJourney(journeyIndex + 1, true), 5000);
+      journeyTimer = window.setInterval(() => showJourney(journeyIndex + 1, true), 3000);
     };
     journeyPrev.addEventListener('click', () => { showJourney(journeyIndex - 1); startJourneyAutoplay(); });
     journeyNext.addEventListener('click', () => { showJourney(journeyIndex + 1); startJourneyAutoplay(); });
