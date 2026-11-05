@@ -542,6 +542,88 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
  .certificate-track{grid-auto-columns:82%;}
  .seminar-list li{grid-template-columns:75px minmax(0,1fr);gap:8px;}
 }
+/* Keep these mobile rules after the desktop art direction so the grid stays stacked. */
+@media screen and (max-width:900px) {
+ .sidebar {width:min(320px,88vw);padding-bottom:max(18px,env(safe-area-inset-bottom));overscroll-behavior:contain;}
+ .nav-link {min-height:46px;font-size:14px;}
+ .menu-toggle,.dialog-close {width:44px;height:44px;}
+ .mobile-header {padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));}
+ .section-content > *,.hero-left,.hero-right,.contact-left,.education-aside {min-width:0;}
+ .project-card-meta {flex-wrap:wrap;align-items:flex-start;}
+ .project-card-meta .project-index {flex:1 1 180px;line-height:1.6;}
+ .project-card h3,.dialog-header h2,.fact-card a {overflow-wrap:anywhere;}
+ .project-open {min-height:44px;font-size:12px;}
+ .project-dialog,.certificate-dialog {max-height:90dvh;overscroll-behavior:contain;}
+ .dialog-header > div {min-width:0;}
+ .dialog-close {position:sticky;top:0;}
+ .field input,.field textarea {font-size:16px;}
+ .floating-top {right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));width:44px;height:44px;}
+}
+@media screen and (max-width:700px) {
+ :root {--page-pad:clamp(16px,4.5vw,28px);}
+ .hero-content {grid-template-columns:minmax(0,1fr);gap:28px;}
+ .hero-right {width:100%;gap:14px;}
+ .hero-image-wrap {width:clamp(176px,54vw,250px);flex:none;margin:12px auto 4px;}
+ .hero-right .hero-info-panel {display:block;width:100%;max-width:460px;text-align:left;}
+ .hero-info-panel strong {font-size:13px;}
+ .profile-slideshow-controls {width:min(100%,300px);font-size:12px;}
+ .profile-slideshow-controls button {min-height:44px;padding:8px 16px;}
+ .hero-left h1 {font-size:clamp(32px,8.5vw,48px);overflow-wrap:anywhere;}
+ .hero-intro,#about .about-narrative {font-size:14px;line-height:1.8;}
+ .hero-actions {max-width:460px;}
+ .hero-actions .button {font-size:13px;min-height:48px;}
+ .hero-glow {width:180px;height:180px;right:0;}
+ .section-heading h2 {font-size:clamp(30px,8vw,42px);line-height:1.14;}
+ .section-heading>p:last-child:not(.section-kicker),.heading-with-note>div>p:last-child {font-size:14px;line-height:1.7;}
+ .about-grid,.education-grid,.contact-grid,.experience-grid,.project-grid,.skill-panels {grid-template-columns:minmax(0,1fr);gap:22px;}
+ .education-aside {width:100%;max-width:none;}
+ .education-photo-slot {height:auto;aspect-ratio:4/3;}
+ .education-photo-slot img {display:block;}
+ .education-detail-copy {padding:18px;}
+ .education-select {padding:8px;min-height:44px;}
+ .education-degree {font-size:15px;}
+ .education-school,.education-detail-copy p {font-size:13px;}
+ .project-card-content {padding:18px;gap:13px;}
+ .project-card h3 {font-size:20px;line-height:1.35;}
+ .project-card p,.info-card p,.experience-card li {font-size:14px;line-height:1.7;}
+ .project-highlights span,.project-card .tag {font-size:11px;line-height:1.45;}
+ .skill-panel {padding:18px;}
+ .skill-label {overflow-wrap:anywhere;}
+ .expand-panel summary {min-height:48px;padding:16px;font-size:14px;}
+ .honors-list,.experience-card ul {overflow-wrap:anywhere;}
+ .contact-left .fact-card {padding:16px;}
+ .contact-left .fact-card a {font-size:13px;}
+ .document-actions {flex-direction:column;}
+ .document-actions .button {width:100%;font-size:12px;}
+ .journey-card {padding:12px;}
+ .journey-heading {padding:8px 4px 14px;}
+ .journey-heading h3 {font-size:21px;}
+ .journey-heading p {font-size:13px;}
+ .journey-photo-wrap {height:auto;aspect-ratio:4/3;}
+ .journey-control,.journey-pause {width:44px;height:44px;flex-basis:44px;}
+ .journey-controls {gap:6px;}
+ .journey-dots {gap:0;flex-wrap:nowrap;min-width:0;}
+ .journey-dots button {width:20px;height:32px;flex:0 0 20px;border:0;background:transparent;box-shadow:none;display:grid;place-items:center;}
+ .journey-dots button::after {content:'';width:8px;height:8px;border-radius:50%;background:#9db6d7;}
+ .journey-dots button[aria-current="true"] {background:transparent;box-shadow:none;}
+ .journey-dots button[aria-current="true"]::after {background:#2864bd;box-shadow:0 0 0 3px #dceaff;}
+ .journey-dots button[hidden] {display:none;}
+ .project-dialog-content,.dialog-content {padding:16px;}
+ .project-dialog-text p {font-size:14px;}
+ .project-live-link {min-width:0;max-width:100%;width:100%;}
+ .site-footer {padding:22px var(--page-pad) 76px;}
+}
+@media screen and (max-width:400px) {
+ .skill-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .focus-nodes {grid-template-columns:1fr;gap:16px;}
+ .focus-nodes strong {font-size:13px;}
+ .focus-nodes small {font-size:11px;}
+ .page-topline {white-space:normal;gap:8px;line-height:1.5;}
+ .project-card-meta .project-index {flex-basis:100%;}
+}
+@media (hover:none) {
+ .project-card:hover,.skill-tile:hover,.button:not(:disabled):hover,.journey-control:hover,.journey-pause:hover {transform:none;}
+}
 /* Print remains factual, accessible and clean — remove visual-only decoration. */
 @media print {
  :root {--paper:#fff;--page-pad:0;}
