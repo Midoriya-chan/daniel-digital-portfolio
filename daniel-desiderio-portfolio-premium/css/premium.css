@@ -400,6 +400,27 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 .contact-form-status.is-success {background:#eaf8f1;color:#246650;}
 .contact-form-status.is-error {background:#fff0ee;color:#9e3e32;}
 .contact-form-status[hidden] {display:none;}
+.journey-card {min-width:0;padding:20px;border:1px solid #cbd9ea;border-radius:17px;background:#fff;box-shadow:0 19px 44px rgba(27,63,113,.095);}
+.journey-heading {padding:3px 4px 16px;}
+.journey-heading h3 {margin:4px 0 5px;color:#1b3152;font-size:22px;letter-spacing:-.035em;}
+.journey-heading p {margin:0;color:#61738d;font-size:11px;line-height:1.6;}
+.journey-figure {margin:0;overflow:hidden;border:1px solid #dbe5f2;border-radius:13px;background:#edf3fb;}
+.journey-photo-wrap {height:clamp(260px,31vw,390px);overflow:hidden;}
+.journey-photo-wrap img {display:block;width:100%;height:100%;object-fit:cover;transition:opacity .32s var(--ease),transform .5s var(--ease);}
+.journey-photo-wrap img.is-switching {opacity:0;transform:scale(1.035);}
+.journey-figure figcaption {display:flex;justify-content:space-between;gap:12px;padding:12px 15px;color:#4d6282;background:#f7faff;font-size:11px;font-weight:700;}
+.journey-controls {display:flex;align-items:center;gap:9px;margin-top:15px;}
+.journey-control,.journey-pause,.journey-dots button {cursor:pointer;border:1px solid #bdd1ea;background:#f6f9ff;color:#235399;transition:background .2s ease,transform .2s ease,border-color .2s ease;}
+.journey-control {display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:10px;font-size:19px;}
+.journey-pause {min-height:38px;padding:0 12px;border-radius:10px;font-size:11px;font-weight:800;}
+.journey-control:hover,.journey-pause:hover,.journey-dots button:hover {background:#e7f0ff;border-color:#6fa1df;transform:translateY(-2px);}
+.journey-control:focus-visible,.journey-pause:focus-visible,.journey-dots button:focus-visible {outline:3px solid #2e72e4;outline-offset:2px;}
+.journey-pause[hidden] {display:none;}
+.journey-dots {display:flex;flex:1;justify-content:center;align-items:center;flex-wrap:wrap;gap:5px;}
+.journey-dots button {width:9px;height:9px;padding:0;border-radius:50%;font-size:0;}
+.journey-dots button[aria-current="true"] {width:19px;border-radius:9px;background:#2864bd;border-color:#2864bd;}
+@media(max-width:700px){.journey-photo-wrap{height:clamp(240px,56vw,380px);}}
+@media(max-width:430px){.journey-card{padding:15px}.journey-controls{gap:6px}.journey-dots{gap:4px}.journey-pause{padding:0 9px}}
 .site-footer {padding:24px var(--page-pad);background:#132c50;color:#c6d6ea;}
 .site-footer p {font-size:10px;}
 .floating-top {background:#1a4480;border:1px solid #6094de;border-radius:13px;box-shadow:0 11px 32px rgba(22,60,111,.24);}
@@ -496,6 +517,9 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 @media print {
  :root {--paper:#fff;--page-pad:0;}
  .portfolio-page .side-brand, .portfolio-page .side-navigation, .portfolio-page .section-hero .page-topline, .portfolio-page .mobile-header {animation:none !important;}
+ .journey-controls {display:none !important;}
+ .journey-card {break-inside:avoid;box-shadow:none !important;}
+ .journey-photo-wrap {height:70mm;}
  body,.folio-section,.section-hero,#skills,#projects,#contact {background:#fff !important;}
  .reading-progress,.hero-glow,.hero-code,.hero-floating-badge,.photo-corner,.focus-journey,.learning-card,.evidence-ribbon,.contact-banner,.project-window-top,.sidebar-orbit,.sidebar-foot-label {display:none !important;}
  .folio-section::after,.folio-section::before,.learning-card::before {display:none !important;}
@@ -518,6 +542,7 @@ h1 em::after { content:''; position:absolute; bottom:0; left:0; width:100%; heig
 @media(prefers-reduced-motion:reduce){
  .sidebar,.site-main,.side-brand-link,.side-nav-label,.nav-link,.nav-link > .nav-text,.nav-icon,.sidebar-quote,.sidebar-quote-icon,.sidebar-quote-text,.side-download,.download-label,.sidebar-foot small {transition:none !important;}
  .code-cursor,.badge-orbit,.page-bottomline a span {animation:none !important;}
+ .journey-photo-wrap img,.journey-control,.journey-pause,.journey-dots button {transition:none !important;}
  .info-card,.fact-card,.certificate-card,.secondary-project,.experience-card,.project-card,.skill-tile {transform:none !important;}
  .skill-tile,.skill-icon svg {transition:none !important;}
  .project-card,.project-card-image img {transition:none !important;}

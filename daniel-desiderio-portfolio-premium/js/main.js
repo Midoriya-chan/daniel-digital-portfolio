@@ -81,6 +81,93 @@
     reduceEducationMotion.addEventListener('change', startEducationAutoplay);
   }
 
+  // College memories in the contact section; the image remains visible without JS.
+  const journey = document.getElementById('college-journey');
+  const journeyPhoto = document.getElementById('journey-photo');
+  const journeyPosition = document.getElementById('journey-position');
+  const journeyDots = document.getElementById('journey-dots');
+  const journeyPrev = document.getElementById('journey-prev');
+  const journeyNext = document.getElementById('journey-next');
+  const journeyToggle = document.getElementById('journey-toggle');
+  if (journey && journeyPhoto && journeyPosition && journeyDots && journeyPrev && journeyNext && journeyToggle) {
+    const photos = Array.from({ length: 10 }, (_, index) =>
+      `assets/images/college-journey/college-${String(index + 1).padStart(2, '0')}.jpg`);
+    const reduceJourneyMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let journeyIndex = 0;
+    let journeyTimer;
+    let journeySwapTimer;
+    let journeyVisible = false;
+    let journeyHovered = false;
+    let journeyFocused = false;
+    let journeyPaused = reduceJourneyMotion.matches;
+    let journeyForcePlay = false;
+    const dots = photos.map((_, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show college photo ${index + 1} of ${photos.length}`);
+      dot.setAttribute('aria-current', String(index === 0));
+      dot.addEventListener('click', () => { showJourney(index); startJourneyAutoplay(); });
+      journeyDots.append(dot);
+      return dot;
+    });
+    const syncJourneyToggle = () => {
+      journeyToggle.textContent = journeyPaused ? 'Play' : 'Pause';
+      journeyToggle.setAttribute('aria-label', journeyPaused ? 'Play college photo slideshow' : 'Pause college photo slideshow');
+      journeyToggle.setAttribute('aria-pressed', String(journeyPaused));
+    };
+    const showJourney = (index, automatic = false) => {
+      window.clearTimeout(journeySwapTimer);
+      journeyIndex = (index + photos.length) % photos.length;
+      journeyPhoto.classList.add('is-switching');
+      const swap = () => {
+        journeyPhoto.src = photos[journeyIndex];
+        journeyPhoto.alt = `Group photo from Daniel's college journey, photo ${journeyIndex + 1} of ${photos.length}`;
+        journeyPosition.setAttribute('aria-live', automatic ? 'off' : 'polite');
+        journeyPosition.textContent = `${String(journeyIndex + 1).padStart(2, '0')} / ${photos.length}`;
+        dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === journeyIndex)));
+        journeyPhoto.classList.remove('is-switching');
+        const nextPhoto = new Image();
+        nextPhoto.src = photos[(journeyIndex + 1) % photos.length];
+      };
+      if (reduceJourneyMotion.matches) swap();
+      else journeySwapTimer = window.setTimeout(swap, 180);
+    };
+    const startJourneyAutoplay = () => {
+      window.clearInterval(journeyTimer);
+      if (journeyPaused || reduceJourneyMotion.matches || document.hidden || !journeyVisible || ((journeyHovered || journeyFocused) && !journeyForcePlay)) return;
+      journeyTimer = window.setInterval(() => showJourney(journeyIndex + 1, true), 5000);
+    };
+    journeyPrev.addEventListener('click', () => { showJourney(journeyIndex - 1); startJourneyAutoplay(); });
+    journeyNext.addEventListener('click', () => { showJourney(journeyIndex + 1); startJourneyAutoplay(); });
+    journeyToggle.addEventListener('click', () => {
+      journeyPaused = !journeyPaused;
+      journeyForcePlay = !journeyPaused;
+      syncJourneyToggle();
+      startJourneyAutoplay();
+    });
+    journey.addEventListener('mouseenter', () => { journeyHovered = true; startJourneyAutoplay(); });
+    journey.addEventListener('mouseleave', () => { journeyHovered = false; startJourneyAutoplay(); });
+    journey.addEventListener('focusin', () => { journeyFocused = true; startJourneyAutoplay(); });
+    journey.addEventListener('focusout', event => {
+      if (!journey.contains(event.relatedTarget)) { journeyFocused = false; startJourneyAutoplay(); }
+    });
+    document.addEventListener('visibilitychange', startJourneyAutoplay);
+    reduceJourneyMotion.addEventListener('change', () => {
+      if (reduceJourneyMotion.matches) { journeyPaused = true; journeyForcePlay = false; }
+      journeyToggle.hidden = reduceJourneyMotion.matches;
+      syncJourneyToggle();
+      startJourneyAutoplay();
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        journeyVisible = entries[0].isIntersecting;
+        startJourneyAutoplay();
+      }, { threshold: 0.25 }).observe(journey);
+    } else { journeyVisible = true; startJourneyAutoplay(); }
+    journeyToggle.hidden = reduceJourneyMotion.matches;
+    syncJourneyToggle();
+  }
+
   // Profile carousel: manual image clicks advance immediately; autoplay pauses for
   // reduced-motion preferences, hidden tabs, hover, and keyboard focus.
   const profileSlides = [

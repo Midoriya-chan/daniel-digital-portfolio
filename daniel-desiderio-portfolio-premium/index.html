@@ -288,7 +288,7 @@
         <div class="contact-banner reveal"><div class="contact-banner-copy"><span class="banner-eyebrow">OPEN TO OPPORTUNITIES</span><strong>Ready to learn. Ready to contribute.</strong><span>IT internship · SAP analytics interest · collaborative projects</span></div><div class="banner-code" aria-hidden="true"><span>01 &nbsp; connect()</span><span>02 &nbsp; collaborate()</span><span>03 &nbsp; grow()</span></div></div>
         <div class="contact-grid">
           <div class="contact-left reveal">
-            <div class="contact-section-heading"><span class="micro-label">Reach me directly</span><h3>Contact details</h3><p>Email, call, or use the form to get in touch about an internship opportunity.</p></div>
+            <div class="contact-section-heading"><span class="micro-label">Reach me directly</span><h3>Contact details</h3><p>Email, call, or connect through social media about an internship opportunity.</p></div>
             <div class="fact-card"><span class="micro-label">Email</span><a href="mailto:danielmatthew820@gmail.com">danielmatthew820@gmail.com</a></div>
             <div class="fact-card"><span class="micro-label">Mobile</span><a href="tel:+639605446060">0960 544 6060</a></div>
             <div class="fact-card"><span class="micro-label">Location</span><strong>730 Bariso Apt. General Yengco St. Bayan Luma 6, Imus City, Cavite</strong></div>
@@ -301,16 +301,10 @@
             <div class="document-actions"><a class="button button-primary" href="assets/docs/Daniel-Matthew-Desiderio-Resume.pdf" download>Download Resume (PDF)</a><a class="button button-outline" href="assets/docs/Daniel-Matthew-Desiderio-Cover-Letter.pdf" download>Download Cover Letter (PDF)</a></div>
             <p class="help-text">Download the resume or cover letter using the links above.</p>
           </div>
-          <div class="contact-form-card reveal">
-            <div class="contact-form-heading"><span class="micro-label">Send a message</span><h3>Start a conversation</h3><p>Use the form below to share your message.</p></div>
-            <form name="portfolio-contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
-              <p class="honeypot"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-              <div class="form-row"><div class="field"><label for="contact-name">Name</label><input id="contact-name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="120" required></div><div class="field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" maxlength="254" required></div></div>
-              <div class="field"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" placeholder="Internship inquiry" maxlength="140"></div>
-              <div class="field"><label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="6" placeholder="Write your message" maxlength="3000" required></textarea></div>
-              <button class="button button-primary" type="submit" id="contact-submit">Send Message</button>
-              <p class="form-note">Email directly instead: <a href="mailto:danielmatthew820@gmail.com?subject=Internship%20Inquiry">danielmatthew820@gmail.com</a></p>
-            </form>
+          <div class="journey-card reveal" id="college-journey" aria-label="College journey photo slideshow">
+            <div class="journey-heading"><span class="micro-label">College journey</span><h3>Moments along the way.</h3><p>Snapshots with classmates and friends throughout my college years.</p></div>
+            <figure class="journey-figure"><div class="journey-photo-wrap"><img id="journey-photo" src="assets/images/college-journey/college-01.jpg" alt="Group photo from Daniel's college journey, photo 1 of 10" width="1321" height="991" decoding="async"></div><figcaption><span>College memories</span><span id="journey-position" aria-live="off">01 / 10</span></figcaption></figure>
+            <div class="journey-controls"><button class="journey-control" id="journey-prev" type="button" aria-label="Previous college photo">←</button><div class="journey-dots" id="journey-dots" aria-label="Choose a college photo"></div><button class="journey-control" id="journey-next" type="button" aria-label="Next college photo">→</button><button class="journey-pause" id="journey-toggle" type="button" aria-pressed="false" aria-label="Pause college photo slideshow">Pause</button></div>
           </div>
         </div>
       </div>
