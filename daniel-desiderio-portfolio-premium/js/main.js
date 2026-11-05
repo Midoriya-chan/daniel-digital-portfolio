@@ -113,7 +113,7 @@
   const journeyNext = document.getElementById('journey-next');
   const journeyToggle = document.getElementById('journey-toggle');
   if (journey && journeyPhoto && journeyPosition && journeyDots && journeyPrev && journeyNext && journeyToggle) {
-    const photos = Array.from({ length: 10 }, (_, index) =>
+    const photos = Array.from({ length: 29 }, (_, index) =>
       `assets/images/college-journey/college-${String(index + 1).padStart(2, '0')}.jpg`);
     const reduceJourneyMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let journeyIndex = 0;
@@ -133,6 +133,20 @@
       journeyDots.append(dot);
       return dot;
     });
+    const syncJourneyDots = () => {
+      const firstVisible = Math.max(0, Math.min(journeyIndex - 3, photos.length - 7));
+      dots.forEach((dot, index) => {
+        dot.hidden = index < firstVisible || index >= firstVisible + 7;
+        dot.setAttribute('aria-current', String(index === journeyIndex));
+      });
+    };
+    const prefetchJourney = () => {
+      for (let offset = -3; offset <= 3; offset++) {
+        if (offset === 0) continue;
+        prepareImage(photos[(journeyIndex + offset + photos.length) % photos.length]).catch(() => {});
+      }
+    };
+    syncJourneyDots();
     const syncJourneyToggle = () => {
       journeyToggle.setAttribute('aria-label', journeyPaused ? 'Play college photo slideshow' : 'Pause college photo slideshow');
       journeyToggle.title = journeyPaused ? 'Play slideshow' : 'Pause slideshow';
@@ -154,9 +168,8 @@
         }
         journeyPosition.setAttribute('aria-live', automatic ? 'off' : 'polite');
         journeyPosition.textContent = `Photo ${journeyIndex + 1} of ${photos.length}`;
-        dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === journeyIndex)));
-        prepareImage(photos[(journeyIndex + 1) % photos.length]).catch(() => {});
-        prepareImage(photos[(journeyIndex - 1 + photos.length) % photos.length]).catch(() => {});
+        syncJourneyDots();
+        prefetchJourney();
       }).catch(() => {});
     };
     const startJourneyAutoplay = () => {
@@ -188,10 +201,7 @@
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(entries => {
         journeyVisible = entries[0].isIntersecting;
-        if (journeyVisible) {
-          prepareImage(photos[(journeyIndex + 1) % photos.length]).catch(() => {});
-          prepareImage(photos[(journeyIndex - 1 + photos.length) % photos.length]).catch(() => {});
-        }
+        if (journeyVisible) prefetchJourney();
         startJourneyAutoplay();
       }, { threshold: 0.25 }).observe(journey);
     } else { journeyVisible = true; startJourneyAutoplay(); }
