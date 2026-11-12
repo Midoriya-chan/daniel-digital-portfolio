@@ -232,7 +232,7 @@ h1 em { font-style: normal; color: var(--navy); }
 .leadership-note { font-size: 10px; color:var(--muted); margin: 11px 0 0; }
 
 /* 08 / CONTACT */
-.contact-grid { display:grid; grid-template-columns: .9fr 1fr; gap: clamp(18px, 3vw, 38px); align-items:start; }
+.contact-grid { display:grid; grid-template-columns: .9fr 1fr; gap: clamp(18px, 3vw, 38px); align-items:stretch; }
 .contact-left { display:flex; flex-direction:column; gap:12px; }
 .contact-left .fact-card { padding:17px; }
 .contact-left .fact-card a:hover { color: var(--blue); text-decoration: underline; }
